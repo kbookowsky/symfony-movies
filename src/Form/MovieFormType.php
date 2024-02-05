@@ -6,6 +6,7 @@ use App\Entity\Actor;
 use App\Entity\Movie;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -34,6 +35,14 @@ class MovieFormType extends AbstractType
                 'label' => 'Release Year',
                 'required' => false
             ])
+            ->add('duration', TextType::class, [
+                'attr' => array(
+                    'class' => 'bg-white block mt-4 p-2 border border-gray-500 rounded-lg w-full outline-none',
+                    'placeholder' => 'e.g. 1:30'
+                ),
+                'label' => 'Duration',
+                'required' => false
+            ])
             ->add('description', TextareaType::class, [
                 'attr' => array(
                     'class' => 'bg-white block mt-4 p-2 border border-gray-500 rounded-lg w-full h-60 outline-none',
@@ -52,6 +61,16 @@ class MovieFormType extends AbstractType
                     'class' => 'block mb-3'
                 ),
                 'required' => false
+            ])
+            ->add('genres', ChoiceType::class, [
+                'multiple' => true,
+                'choices' => [
+                    'Action' => 'action',
+                    'Comedy' => 'comedy',
+                ],
+                'label_attr' => array(
+                    'class' => 'block mb-3'
+                ),
             ])
             ->add('actors', EntityType::class, [
                 'class' => Actor::class,

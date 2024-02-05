@@ -22,45 +22,33 @@
                                     </a>
                                 </div>
                                 <div class="flex flex-col">
-                                    <div class="grid grid-cols-3 rounded-sm bg-gray-2 dark:bg-meta-4 sm:grid-cols-5">
+                                    <div class="grid grid-cols-2 rounded-sm bg-gray-2 dark:bg-meta-4">
                                         <div class="p-5 pl-0">
                                             <h5 class="text-sm font-medium uppercase">Title</h5>
                                         </div>
                                         <div class="p-5">
-                                            <h5 class="text-sm text-center font-medium uppercase">Reviews</h5>
-                                        </div>
-                                        <div class="p-5">
-                                            <h5 class="text-sm text-center font-medium uppercase">Release Year</h5>
-                                        </div>
-                                        <div class="p-5">
-                                            <h5 class="text-sm text-center font-medium uppercase">Duration</h5>
-                                        </div>
-                                        <div class="p-5">
-                                            <h5 class="text-sm text-center font-medium uppercase">Details</h5>
+                                            <h5 class="text-sm text-right font-medium uppercase">Actions</h5>
                                         </div>
                                     </div>
                                     {% if movies is empty %}
-                                        <div class="grid grid-cols-3 sm:grid-cols-5">
+                                        <div class="grid grid-cols-2">
                                             <span>There are no movies to display.</span>
                                         </div>
                                     {% else %}
                                         {% for movie in movies %}
-                                            <div class="grid grid-cols-5 border-b border-gray-200 {{ loop.first ? 'border-t' : '' }}">
+                                            <div class="grid grid-cols-2 border-b border-gray-200 {{ loop.first ? 'border-t' : '' }}">
                                                 <div class="flex items-center p-5 pl-0">
                                                     <p class="font-medium text-black">{{ movie.title }}</p>
                                                 </div>
-                                                <div class="flex items-center justify-center p-5">
-                                                    <p class="font-medium text-black">{{ movie.averageRating|number_format(2) }} / 5</p>
-                                                </div>
-                                                <div class="flex items-center justify-center p-5">
-                                                    <p class="font-medium text-black">{{ movie.releaseYear }}</p>
-                                                </div>
-                                                <div class="flex items-center justify-center p-5">
-                                                    <p class="font-medium text-black">{{ movie.duration }}</p>
-                                                </div>
-                                                <div class="flex items-center justify-center p-5">
-                                                    <a href="/movie/{{ movie.slug }}" class="font-medium text-black hover:underline">
-                                                        Link
+                                                <div class="flex items-center justify-end px-5 gap-x-3">
+                                                    <a href="/movie/{{ movie.slug }}" class="uppercase mt-15 bg-blue-900 text-white py-2 px-4 rounded-lg w-fit">
+                                                        View
+                                                    </a>
+                                                    <a href="/movie/{{ movie.slug }}" class="uppercase mt-15 bg-blue-900 text-white py-2 px-4 rounded-lg w-fit">
+                                                        Edit
+                                                    </a>
+                                                    <a href="/movie/{{ movie.slug }}" class="uppercase mt-15 bg-red-900 text-white py-2 px-4 rounded-lg w-fit">
+                                                        Delete
                                                     </a>
                                                 </div>
                                             </div>

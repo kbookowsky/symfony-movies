@@ -2,57 +2,58 @@
 
 namespace App\Repository;
 
-use App\Entity\Movie;
+use App\Entity\Review;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 
 /**
- * @extends ServiceEntityRepository<Movie>
+ * @extends ServiceEntityRepository<Review>
  *
- * @method Movie|null find($id, $lockMode = null, $lockVersion = null)
- * @method Movie|null findOneBy(array $criteria, array $orderBy = null)
- * @method Movie[]    findAll()
- * @method Movie[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Review|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Review|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Review[]    findAll()
+ * @method Review[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class MovieRepository extends ServiceEntityRepository
+class ReviewRepository extends ServiceEntityRepository
 {
+
     protected $paginator;
 
     public function __construct(ManagerRegistry $registry, PaginatorInterface $paginator)
     {
-        parent::__construct($registry, Movie::class);
+        parent::__construct($registry, Review::class);
         $this->paginator = $paginator;
     }
 
     public function findAllPosts(int $page = 1, int $maxPerPage = 10): PaginationInterface
     {
-        $qb = $this->createQueryBuilder("m")
+        $qb = $this->createQueryBuilder("r")
         ->getQuery();
 
         return $this->paginator->paginate($qb, $page, $maxPerPage);
     }
 
 //    /**
-//     * @return Movie[] Returns an array of Movie objects
+//     * @return Review[] Returns an array of Review objects
 //     */
 //    public function findByExampleField($value): array
 //    {
-//        return $this->createQueryBuilder('m')
-//            ->andWhere('m.exampleField = :val')
+//        return $this->createQueryBuilder('r')
+//            ->andWhere('r.exampleField = :val')
 //            ->setParameter('val', $value)
-//            ->orderBy('m.id', 'ASC')
+//            ->orderBy('r.id', 'ASC')
 //            ->setMaxResults(10)
 //            ->getQuery()
 //            ->getResult()
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Movie
+//    public function findOneBySomeField($value): ?Review
 //    {
-//        return $this->createQueryBuilder('m')
-//            ->andWhere('m.exampleField = :val')
+//        return $this->createQueryBuilder('r')
+//            ->andWhere('r.exampleField = :val')
 //            ->setParameter('val', $value)
 //            ->getQuery()
 //            ->getOneOrNullResult()

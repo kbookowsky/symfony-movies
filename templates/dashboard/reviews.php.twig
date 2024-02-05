@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="flex h-screen overflow-hidden">
-      <!-- ===== Sidebar Start ===== -->
+        <!-- ===== Sidebar Start ===== -->
         {% include('dashboard/_dashboard-aside.php.twig') %}
         <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
             <main>
@@ -15,23 +15,23 @@
                                 <h4 class="text-title-lg font-bold text-gray-900">
                                     User:
                                 </h4>
-                                <span class="text-sm font-medium">{{ app.user.name }}</span>
+                                <span class="text-sm font-medium">{{ app.user.email }}</span>
                             </div>
                         </div>
                         <div class="rounded-sm border border-stroke bg-white p-6 shadow-default dark:border-strokedark dark:bg-boxdark">
                             <div class="flex items-end justify-between">
                                 <h4 class="text-title-lg font-bold text-gray-900">
-                                    Your reviews:
+                                    Movies count:
                                 </h4>
-                                <span class="text-sm font-medium">{{ reviewsCount }}</span>
+                                <span class="text-sm font-medium">99</span>
                             </div>
                         </div>
                         <div class="rounded-sm border border-stroke bg-white p-6 shadow-default dark:border-strokedark dark:bg-boxdark">
                             <div class="flex items-end justify-between">
                                 <h4 class="text-title-lg font-bold text-gray-900">
-                                    All movies:
+                                    Reviews count:
                                 </h4>
-                                <span class="text-sm font-medium">{{ moviesCount }}</span>
+                                <span class="text-sm font-medium">99</span>
                             </div>
                         </div>
                         <div class="rounded-sm border border-stroke bg-white p-6 shadow-default dark:border-strokedark dark:bg-boxdark">
@@ -39,7 +39,7 @@
                                 <h4 class="text-title-lg font-bold text-gray-900">
                                     Users count:
                                 </h4>
-                                <span class="text-sm font-medium">{{ usersCount }}</span>
+                                <span class="text-sm font-medium">99</span>
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                         <div class="col-span-12">
                             <div class="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default">
                                 <h4 class="mb-6 text-xl font-bold text-black">
-                                    New movies
+                                    Popular movies
                                 </h4>
                                 <div class="flex flex-col">
                                     <div class="grid grid-cols-3 rounded-sm bg-gray-2 dark:bg-meta-4 sm:grid-cols-5">
@@ -58,7 +58,7 @@
                                             <h5 class="text-sm text-center font-medium uppercase">Reviews</h5>
                                         </div>
                                         <div class="p-5">
-                                            <h5 class="text-sm text-center font-medium uppercase">Release Year</h5>
+                                            <h5 class="text-sm text-center font-medium uppercase">Comments</h5>
                                         </div>
                                         <div class="p-5">
                                             <h5 class="text-sm text-center font-medium uppercase">Duration</h5>
@@ -67,33 +67,23 @@
                                             <h5 class="text-sm text-center font-medium uppercase">Details</h5>
                                         </div>
                                     </div>
-                                    {% if newMovies is empty %}
-                                        <div class="grid grid-cols-3 sm:grid-cols-5">
-                                            <span>There are no movies to display.</span>
+                                    <div class="grid grid-cols-3 sm:grid-cols-5">
+                                        <div class="flex items-center p-5 pl-0">
+                                            <p class="font-medium text-black">Movie title</p>
                                         </div>
-                                    {% else %}
-                                        {% for movie in newMovies %}
-                                            <div class="grid grid-cols-3 sm:grid-cols-5">
-                                                <div class="flex items-center p-5 pl-0">
-                                                    <p class="font-medium text-black">{{ movie.title }}</p>
-                                                </div>
-                                                <div class="flex items-center justify-center p-5">
-                                                    <p class="font-medium text-black">{{ movie.averageRating|number_format(2) }} / 5</p>
-                                                </div>
-                                                <div class="flex items-center justify-center p-5">
-                                                    <p class="font-medium text-black">{{ movie.releaseYear }}</p>
-                                                </div>
-                                                <div class="flex items-center justify-center p-5">
-                                                    <p class="font-medium text-black">{{ movie.duration }}</p>
-                                                </div>
-                                                <div class="flex items-center justify-center p-5">
-                                                    <a href="/movie/{{ movie.slug }}" class="font-medium text-black hover:underline">
-                                                        Link
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        {% endfor %}
-                                    {% endif %}
+                                        <div class="flex items-center justify-center p-5">
+                                            <p class="font-medium text-black">4.5/5</p>
+                                        </div>
+                                        <div class="flex items-center justify-center p-5">
+                                            <p class="font-medium text-black">12</p>
+                                        </div>
+                                        <div class="flex items-center justify-center p-5">
+                                            <p class="font-medium text-black">1h30</p>
+                                        </div>
+                                        <div class="flex items-center justify-center p-5">
+                                            <a href="#" class="font-medium text-black hover:underline">Link</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

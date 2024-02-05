@@ -1,24 +1,85 @@
 {% extends "./base.html.twig" %}
 
 {% block body %}
-    <div class="sm:w-3/5 w-4/5 mx-auto pt-32 pb-16">
-        <h1 class="sm:text-5xl md:text-7xl text-4xl font-bold text-center">
-            {{ movie.title }}
-        </h1>
+    <div class="w-11/12 mx-auto pt-32 pb-16 flex">
+        <img src="{{ movie.imagePath }}" class="rounded-xl shadow-xl basis-3/12 w-3/12"/>
+        <div class="pl-10">
+            <h1 class="sm:text-4xl md:text-5xl text-3xl font-bold">
+                {{ movie.title }} ({{ movie.releaseYear }})
+            </h1>
 
-        <div class="py-10 text-center">
-            <div class="inline-block sm:pt-1">
-                <h2 class="font-bold mb-3">
-                    Action, comedy
-                </h2>
-                <p class="text-sm text-gray-600">
-                    28-01-2022 4 min. read
-                </p>
+            <div class="pt-6">
+                <div class="inline-block sm:pt-1">
+                    <div class="mb-3 flex">
+                        <span class="font-bold mr-2">
+                            Genres:
+                        </span>
+                        <span class="first-letter:capitalize">
+                            {{ movie.genres|join(', ') }}
+                        </span>
+                    </div>
+                    <div class="mb-3 flex">
+                        <span class="font-bold mr-2">
+                            Actors:
+                        </span>
+                        <span class="first-letter:capitalize flex">
+                            {% set i = 0 %}
+                            {% for actor in movie.actors %}
+                                {% if i > 0 %}
+                                    <span>{{ ", #{actor.name}" }}</span>
+                                {% else %}
+                                    <span>{{ actor.name }}</span>
+                                {% endif %}
+                                {% set i = i + 1 %}
+                            {% endfor %}
+                        </span>
+                    </div>
+                </div>
             </div>
+
+            <p class="text-l mt-6">
+                {{ movie.description }}
+            </p>
         </div>
-        <img src="{{ movie.imagePath }}" class="rounded-xl w-full shadow-xl"/>
-        <p class="text-xl py-6">
-            {{ movie.description }}
-        </p>
+    </div>
+    <div class="w-11/12 mx-auto pb-16">
+        <div class="flex justify-between">
+            <h2 class="text-3xl font-bold">
+                Reviews
+            </h2>
+            <a href="/reviews/create/{{ movie.slug }}" class="uppercase mt-15 bg-blue-900 text-white py-3 px-6 rounded-lg w-fit ml-auto">
+                Add review
+            </a>
+        </div>
+        <div class="mt-6">
+            {% if movie.reviews is empty %}
+                <span>There are no reviews for this movie.</span>
+            {% else %}
+                {% for review in movie.reviews %}
+                    <div class="mb-6 p-3 bg-white shadow-l rounded">
+                        <div class="mb-2">
+                            {{ review.user.name }}
+                        </div>
+                        <div class="mb-4 flex">
+                            {% set count = review.review %}
+                            {% for i in 1..5 %}
+                                {% if count > 0 %}
+                                    {{ source('star-fill.svg') }}
+                                    {% set count = count - 1 %}
+                                {% else %}
+                                    {{ source('star-outline.svg') }}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="text-l font-bold mb-1">
+                            {{ review.heading }}
+                        </div>
+                        <div>
+                            {{ review.content }}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
     </div>
 {% endblock %}

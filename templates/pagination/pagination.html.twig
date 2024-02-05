@@ -1,0 +1,40 @@
+{# tailwindcss Sliding pagination control implementation #}
+{% if pageCount > 1 %}
+    <div class="inline-block">
+        <div class="flex items-center flex-row rounded-sm w-auto">
+        {% if first is defined and current != first %}
+            <span class="h-8 w-8 bg-white text-blue-600 text-lg border border-gray-200 font-bold">
+                <a class="h-8 w-8 flex justify-center items-center hover:bg-gray-100 pb-1" href="{{ path(route, query|merge({(pageParameterName): first})) }}">&lt;&lt;</a>
+            </span>
+        {% endif %}
+
+        {% if previous is defined %}
+            <span class="h-8 w-8 bg-white text-blue-600 text-lg border border-gray-200">
+                <a class="h-8 w-8 flex justify-center items-center hover:bg-gray-100 pb-1" rel="prev" href="{{ path(route, query|merge({(pageParameterName): previous})) }}">&lt;</a>
+            </span>
+        {% endif %}
+
+        {% for page in pagesInRange %}
+            {% if page != current %}
+                <span class="h-8 w-8 bg-white text-blue-600 text-lg border border-gray-200">
+                    <a class="h-8 w-8 flex justify-center items-center hover:bg-gray-100" href="{{ path(route, query|merge({(pageParameterName): page})) }}">{{ page }}</a>
+                </span>
+            {% else %}
+                <span class="bg-blue-600 text-white h-8 w-8 flex justify-center items-center text-lg font-bold">{{ page }}</span>
+            {% endif %}
+        {% endfor %}
+
+        {% if next is defined %}
+            <span class="h-8 w-8 bg-white text-blue-600 text-lg border border-gray-200">
+                <a class="h-8 w-8 flex justify-center items-center hover:bg-gray-100 pb-1" rel="next" href="{{ path(route, query|merge({(pageParameterName): next})) }}">&gt;</a>
+            </span>
+        {% endif %}
+
+        {% if last is defined and current != last %}
+            <span class="h-8 w-8 bg-white text-blue-600 text-lg border border-gray-200 font-bold">
+                <a class="h-8 w-8 flex justify-center items-center hover:bg-gray-100 pb-1" href="{{ path(route, query|merge({(pageParameterName): last})) }}">&gt;&gt;</a>
+            </span>
+        {% endif %}
+        </div>
+    </div>
+{% endif %}

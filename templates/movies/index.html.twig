@@ -11,21 +11,21 @@
     <div class="md:grid lg:grid-cols-2 gap-20 w-4/5 mx-auto py-8">
         <!-- Review Item -->
         {% for movie in movies %}
-            <div class="pt-8 pb-4 flex gap-x-3">
+            <div class="pt-8 pb-4 flex gap-x-6">
                 <div class="basis-5/12 shrink-0">
                     <img src="{{ movie.imagePath }}" alt="" class="shadow-xl rounded-md"/>
                 </div>
                 <div>
-                    <h2 class="text-gray-700 font-bold text-3xl py-2">
+                    <h2 class="text-gray-700 font-bold text-3xl pb-2">
                         {{ movie.title }}
                     </h2>
-                    <span class="text-gray-500">
-                        Action, comedy
+                    <span class="text-gray-500 capitalize">
+                        {{ movie.genres|join(', ') }}
                     </span>
-                    <p class="text-base text-gray-700 pt-4 pb-10 leading-8 font-light">
+                    <p class="text-base text-gray-700 pt-4 pb-10 font-light">
                         {{ movie.description }}
                     </p>
-                    <a href="/movies/show/{{ movie.id }}" class="uppercase border border-gray-500 text-gray-600 text-lg py-3 px-6 rounded transition transition-all hover:bg-gray-800 hover:text-white">
+                    <a href="/movie/{{ movie.slug }}" class="uppercase border border-gray-500 text-gray-600 text-lg py-3 px-6 rounded transition hover:bg-gray-800 hover:text-white">
                         Movie details
                     </a>
                 </div>

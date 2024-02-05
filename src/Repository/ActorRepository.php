@@ -5,6 +5,8 @@ namespace App\Repository;
 use App\Entity\Actor;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @extends ServiceEntityRepository<Actor>
@@ -16,9 +18,21 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class ActorRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+
+    protected $paginator;
+
+    public function __construct(ManagerRegistry $registry, PaginatorInterface $paginator)
     {
         parent::__construct($registry, Actor::class);
+        $this->paginator = $paginator;
+    }
+
+    public function findAllPosts(int $page = 1, int $maxPerPage = 10): PaginationInterface
+    {
+        $qb = $this->createQueryBuilder("a")
+        ->getQuery();
+
+        return $this->paginator->paginate($qb, $page, $maxPerPage);
     }
 
 //    /**

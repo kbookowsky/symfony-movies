@@ -20,7 +20,7 @@ class MoviesController extends AbstractController
         $this->em = $em;
     }
 
-    #[Route('/movies', name: 'movies_index', methods: ['GET'])]
+    #[Route('/', name: 'movies_index', methods: ['GET'])]
     public function index(): Response
     {
         $repository = $this->em->getRepository(Movie::class);
@@ -30,11 +30,11 @@ class MoviesController extends AbstractController
         ]);
     }
 
-    #[Route('/movies/show/{id}', name: 'movies_show', methods: ['GET'] )]
-    public function show($id): Response
+    #[Route('/movie/{slug}', name: 'movies_show', methods: ['GET'] )]
+    public function show($slug): Response
     {
         $repository = $this->em->getRepository(Movie::class);
-        $movie = $repository->find($id);
+        $movie = $repository->findOneBy(['slug' => $slug]);
         return $this->render('movies/show.html.twig', [
             'movie' => $movie
         ]);
@@ -50,6 +50,17 @@ class MoviesController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $newMovie = $form->getData();
+
+            $lastMovie = $this->em->getRepository(Movie::class)->findBy([], ['id' => 'DESC'], 1, 0);
+            $guessID = 0;
+
+            if ($lastMovie) {
+                $guessID = $lastMovie[0]->getId() + 1;
+            }
+
+            $slug = str_replace(' ', '-', strtolower($newMovie->getTitle())) . '-' . $newMovie->getReleaseYear() . '-' . $guessID;
+
+            $newMovie->setSlug($slug);
 
             $imagePath = $form->get('imagePath')->getData();
             if ($imagePath) {
@@ -78,11 +89,11 @@ class MoviesController extends AbstractController
         ]);
     }
 
-    #[Route('/movies/edit/{id}', name: 'movies_edit', methods: ['GET', 'POST'] )]
-    public function edit($id, Request $request): Response
+    #[Route('/movies/edit/{slug}', name: 'movies_edit', methods: ['GET', 'POST'] )]
+    public function edit($slug, Request $request): Response
     {
         $repository = $this->em->getRepository(Movie::class);
-        $movie = $repository->find($id);
+        $movie = $repository->findOneBy(['slug' => $slug]);
 
         $form = $this->createForm(MovieFormType::class, $movie);
 
@@ -129,11 +140,11 @@ class MoviesController extends AbstractController
         ]);
     }
 
-    #[Route('/movies/delete/{id}', name: 'movies_delete', methods: ['DELETE'] )]
-    public function delete($id): Response
+    #[Route('/movies/delete/{slug}', name: 'movies_delete', methods: ['DELETE'] )]
+    public function delete($slug): Response
     {
         $repository = $this->em->getRepository(Movie::class);
-        $movie = $repository->find($id);
+        $movie = $repository->findOneBy(['slug' => $slug]);
         return $this->render('movies/deleter.html.twig', [
             'movie' => $movie
         ]);
