@@ -10,37 +10,47 @@
 
     {% if app.user %}
         <div class="mb-3">
-            You are logged in as {{ app.user.email }}, <a href="{{ path('app_logout') }}">Logout</a>
+            {{ 'You are logged in as'|trans }} {{ app.user.email }}, <a href="{{ path('app_logout') }}">{{ 'Logout'|trans }}</a>
         </div>
     {% endif %}
 
-    <div class="w-4/5 m-auto text-center">
-        <div class="py-12 border-b border-gray-200">
-            <h1 class="text-6xl pt-12 pb-8">
-                Login
+    <div class="w-4/5 m-auto">
+        <div class="py-12 border-b border-gray-200 flex flex-col gap-y-10">
+            <h1 class="text-6xl pt-12 pb-8 text-center">
+                {{ 'Login'|trans }}
             </h1>
-    
-            <input 
-                type="email" 
-                value="{{ last_username }}" 
-                name="email" 
-                id="inputEmail" 
-                class="bg-transparent block mt-10 mx-auto border-b-2 w-1/5 h-20 text-2xl outline-none" 
-                placeholder="Email"
-                autocomplete="email" 
-                required 
-                autofocus
-            >
 
-            <input 
-                type="password" 
-                name="password" 
-                id="inputPassword" 
-                class="bg-transparent block mt-10 mx-auto border-b-2 w-1/5 h-20 text-2xl outline-none" 
-                autocomplete="current-password" 
-                placeholder="Password"
-                required
-            >
+            <div class="w-96 mx-auto">
+                <label for="inputEmail" class="required mb-3">
+                    {{ 'Email'|trans }}
+                </label>
+                <input 
+                    type="email" 
+                    value="{{ last_username }}" 
+                    name="email" 
+                    id="inputEmail" 
+                    class="bg-white block mt-4 p-2 border border-gray-500 rounded-lg w-full outline-none" 
+                    placeholder="{{ 'Email'|trans }}"
+                    autocomplete="email" 
+                    required 
+                    autofocus
+                >
+            </div>
+
+            <div class="w-96 mx-auto">
+                <label for="inputPassword" class="required mb-3">
+                    {{ 'Password'|trans }}
+                </label>
+                <input 
+                    type="password" 
+                    name="password" 
+                    id="inputPassword" 
+                    class="bg-white block mt-4 p-2 border border-gray-500 rounded-lg w-full outline-none" 
+                    autocomplete="current-password" 
+                    placeholder="{{ 'Password'|trans }}"
+                    required
+                >
+            </div>
 
             <input 
                 type="hidden" 
@@ -49,9 +59,9 @@
             >
 
             <button 
-                class="uppercase mt-15 bg-blue-500 text-gray-100 text-lg w-1/5 mt-10 font-extrabold py-4 px-8 rounded-3xl" 
+                class="uppercase mt-15 bg-blue-900 text-white py-3 px-6 rounded-lg w-fit mx-auto" 
                 type="submit">
-                Sign in
+                {{ 'Log in'|trans }}
             </button>
         </form>
     </div>

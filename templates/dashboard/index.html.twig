@@ -3,17 +3,18 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block body %}
-    <div class="flex h-screen overflow-hidden">
-      <!-- ===== Sidebar Start ===== -->
+    <div class="flex min-h-screen h-full overflow-hidden">
+
         {% include('dashboard/_dashboard-aside.php.twig') %}
-        <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
+        
+        <div class="relative flex flex-1 flex-col">
             <main>
                 <div class="mx-auto max-w-screen-2xl p-4 pt-24">
                     <div class="grid gap-6 grid-cols-4">
                         <div class="rounded-sm border border-stroke bg-white p-6 shadow-default dark:border-strokedark dark:bg-boxdark">
                             <div class="flex items-end justify-between">
                                 <h4 class="text-title-lg font-bold text-gray-900">
-                                    User:
+                                    {{ 'User:'|trans }}
                                 </h4>
                                 <span class="text-sm font-medium">{{ app.user.name }}</span>
                             </div>
@@ -21,7 +22,7 @@
                         <div class="rounded-sm border border-stroke bg-white p-6 shadow-default dark:border-strokedark dark:bg-boxdark">
                             <div class="flex items-end justify-between">
                                 <h4 class="text-title-lg font-bold text-gray-900">
-                                    Your reviews:
+                                    {{ 'Your reviews:'|trans }}
                                 </h4>
                                 <span class="text-sm font-medium">{{ reviewsCount }}</span>
                             </div>
@@ -29,7 +30,7 @@
                         <div class="rounded-sm border border-stroke bg-white p-6 shadow-default dark:border-strokedark dark:bg-boxdark">
                             <div class="flex items-end justify-between">
                                 <h4 class="text-title-lg font-bold text-gray-900">
-                                    All movies:
+                                    {{ 'All movies:'|trans }}
                                 </h4>
                                 <span class="text-sm font-medium">{{ moviesCount }}</span>
                             </div>
@@ -37,7 +38,7 @@
                         <div class="rounded-sm border border-stroke bg-white p-6 shadow-default dark:border-strokedark dark:bg-boxdark">
                             <div class="flex items-end justify-between">
                                 <h4 class="text-title-lg font-bold text-gray-900">
-                                    Users count:
+                                    {{ 'Users count:'|trans }}
                                 </h4>
                                 <span class="text-sm font-medium">{{ usersCount }}</span>
                             </div>
@@ -47,29 +48,29 @@
                         <div class="col-span-12">
                             <div class="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default">
                                 <h4 class="mb-6 text-xl font-bold text-black">
-                                    New movies
+                                    {{ 'New movies'|trans }}
                                 </h4>
                                 <div class="flex flex-col">
                                     <div class="grid grid-cols-3 rounded-sm bg-gray-2 dark:bg-meta-4 sm:grid-cols-5">
                                         <div class="p-5 pl-0">
-                                            <h5 class="text-sm font-medium uppercase">Title</h5>
+                                            <h5 class="text-sm font-medium uppercase">{{ 'Title'|trans }}</h5>
                                         </div>
                                         <div class="p-5">
-                                            <h5 class="text-sm text-center font-medium uppercase">Reviews</h5>
+                                            <h5 class="text-sm text-center font-medium uppercase">{{ 'Reviews'|trans }}</h5>
                                         </div>
                                         <div class="p-5">
-                                            <h5 class="text-sm text-center font-medium uppercase">Release Year</h5>
+                                            <h5 class="text-sm text-center font-medium uppercase">{{ 'Release Year'|trans }}</h5>
                                         </div>
                                         <div class="p-5">
-                                            <h5 class="text-sm text-center font-medium uppercase">Duration</h5>
+                                            <h5 class="text-sm text-center font-medium uppercase">{{ 'Duration'|trans }}</h5>
                                         </div>
                                         <div class="p-5">
-                                            <h5 class="text-sm text-center font-medium uppercase">Details</h5>
+                                            <h5 class="text-sm text-center font-medium uppercase">{{ 'Details'|trans }}</h5>
                                         </div>
                                     </div>
                                     {% if newMovies is empty %}
                                         <div class="grid grid-cols-3 sm:grid-cols-5">
-                                            <span>There are no movies to display.</span>
+                                            <span>{{ 'There are no movies to display.'|trans }}</span>
                                         </div>
                                     {% else %}
                                         {% for movie in newMovies %}
@@ -87,8 +88,8 @@
                                                     <p class="font-medium text-black">{{ movie.duration }}</p>
                                                 </div>
                                                 <div class="flex items-center justify-center p-5">
-                                                    <a href="/movie/{{ movie.slug }}" class="font-medium text-black hover:underline">
-                                                        Link
+                                                    <a href="/{{ app.request.locale }}/movie/{{ movie.slug }}" class="font-medium text-black hover:underline">
+                                                        {{ 'Link'|trans }}
                                                     </a>
                                                 </div>
                                             </div>

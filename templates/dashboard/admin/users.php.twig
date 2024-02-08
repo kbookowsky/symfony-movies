@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Dashboard{% endblock %}
+{% block title %}{{ 'Manage Users'|trans }} - {{ 'Dashboard'|trans }}{% endblock %}
 
 {% block body %}
     <div class="flex h-screen overflow-hidden">
@@ -15,21 +15,21 @@
                             <div class="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default">
                                 <div class="flex justify-between items-center mb-6">
                                     <h4 class="text-xl font-bold text-black">
-                                        Manage Users
+                                        {{ 'Manage Users'|trans }}
                                     </h4>
                                 </div>
                                 <div class="flex flex-col">
                                     <div class="grid grid-cols-2 rounded-sm bg-gray-2 dark:bg-meta-4">
                                         <div class="p-5 pl-0">
-                                            <h5 class="text-sm font-medium uppercase">Name</h5>
+                                            <h5 class="text-sm font-medium uppercase">{{ 'Name'|trans }}</h5>
                                         </div>
                                         <div class="p-5">
-                                            <h5 class="text-sm text-right font-medium uppercase">Actions</h5>
+                                            <h5 class="text-sm text-right font-medium uppercase">{{ 'Actions'|trans }}</h5>
                                         </div>
                                     </div>
                                     {% if users is empty %}
                                         <div class="grid grid-cols-2">
-                                            <span>There are no users to display.</span>
+                                            <span>{{ 'There are no users to display.'|trans }}</span>
                                         </div>
                                     {% else %}
                                         {% for user in users %}
@@ -38,10 +38,10 @@
                                                     <p class="font-medium text-black">{{ user.name }}</p>
                                                 </div>
                                                 <div class="flex items-center justify-end px-5 gap-x-3">
-                                                    <a href="/dashboard/admin/user-role/{{ user.id }}" class="uppercase mt-15 bg-blue-900 text-white py-2 px-4 rounded-lg w-fit">
+                                                    <a href="/{{ app.request.locale }}/dashboard/admin/roles/{{ user.id }}" class="uppercase mt-15 bg-blue-900 text-white py-2 px-4 rounded-lg w-fit">
                                                         Roles
                                                     </a>
-                                                    <a href="/dashboard/admin/user-delete/{{ user.id }}" class="uppercase mt-15 bg-red-900 text-white py-2 px-4 rounded-lg w-fit">
+                                                    <a href="/{{ app.request.locale }}/dashboard/admin/user-delete/{{ user.id }}" class="uppercase mt-15 bg-red-900 text-white py-2 px-4 rounded-lg w-fit">
                                                         Delete
                                                     </a>
                                                 </div>

@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ReviewRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ReviewRepository::class)]
 class Review
@@ -23,12 +24,14 @@ class Review
     private ?Movie $movie = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank]
     private ?int $review = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $content = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
     private ?string $heading = null;
 
     public function getId(): ?int

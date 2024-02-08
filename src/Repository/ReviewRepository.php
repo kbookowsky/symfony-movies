@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Review;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Knp\Component\Pager\Pagination\PaginationInterface;
@@ -27,9 +28,18 @@ class ReviewRepository extends ServiceEntityRepository
         $this->paginator = $paginator;
     }
 
-    public function findAllPosts(int $page = 1, int $maxPerPage = 10): PaginationInterface
+    public function findAllReviews(int $page = 1, int $maxPerPage = 10): PaginationInterface
     {
         $qb = $this->createQueryBuilder("r")
+        ->getQuery();
+
+        return $this->paginator->paginate($qb, $page, $maxPerPage);
+    }
+
+    public function findAllByUser(int $user, int $page, int $maxPerPage = 10): PaginationInterface
+    {
+        $qb = $this->createQueryBuilder("r")
+        ->where("r.user = " . $user )
         ->getQuery();
 
         return $this->paginator->paginate($qb, $page, $maxPerPage);

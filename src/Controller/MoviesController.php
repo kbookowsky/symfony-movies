@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Movie;
 use App\Form\MovieFormType;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,18 +14,17 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MoviesController extends AbstractController
 {
-    private EntityManagerInterface $em;
 
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(private EntityManagerInterface $em)
     {
-        $this->em = $em;
     }
 
     #[Route('/', name: 'movies_index', methods: ['GET'])]
-    public function index(): Response
+    public function index(Request $request): Response
     {
         $repository = $this->em->getRepository(Movie::class);
         $movies = $repository->findAll();
+
         return $this->render('movies/index.html.twig', [
             'movies' => $movies
         ]);
@@ -41,6 +41,7 @@ class MoviesController extends AbstractController
     }
 
     #[Route('/movies/create', name: 'movies_create', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_EDITOR')]
     public function create(Request $request): Response
     {
         $movie = new Movie();
@@ -90,6 +91,7 @@ class MoviesController extends AbstractController
     }
 
     #[Route('/movies/edit/{slug}', name: 'movies_edit', methods: ['GET', 'POST'] )]
+    #[IsGranted('ROLE_EDITOR')]
     public function edit($slug, Request $request): Response
     {
         $repository = $this->em->getRepository(Movie::class);
@@ -141,6 +143,7 @@ class MoviesController extends AbstractController
     }
 
     #[Route('/movies/delete/{slug}', name: 'movies_delete', methods: ['DELETE'] )]
+    #[IsGranted('ROLE_ADMIN')]
     public function delete($slug): Response
     {
         $repository = $this->em->getRepository(Movie::class);

@@ -26,7 +26,7 @@ class MovieRepository extends ServiceEntityRepository
         $this->paginator = $paginator;
     }
 
-    public function findAllPosts(int $page = 1, int $maxPerPage = 10): PaginationInterface
+    public function findAllMovies(int $page = 1, int $maxPerPage = 10): PaginationInterface
     {
         $qb = $this->createQueryBuilder("m")
         ->getQuery();

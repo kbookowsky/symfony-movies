@@ -27,7 +27,7 @@ class ActorRepository extends ServiceEntityRepository
         $this->paginator = $paginator;
     }
 
-    public function findAllPosts(int $page = 1, int $maxPerPage = 10): PaginationInterface
+    public function findAllActors(int $page = 1, int $maxPerPage = 10): PaginationInterface
     {
         $qb = $this->createQueryBuilder("a")
         ->getQuery();

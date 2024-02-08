@@ -6,6 +6,7 @@ use App\Entity\Movie;
 use App\Entity\Review;
 use App\Form\ReviewFormType;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,14 +15,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ReviewsController extends AbstractController
 {
-    private EntityManagerInterface $em;
 
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(private EntityManagerInterface $em)
     {
-        $this->em = $em;
     }
 
     #[Route('/reviews/create/{slug}', name: 'reviews_create', methods: ["GET", "POST"])]
+    #[IsGranted('IS_AUTHENTICATED')]
     public function create($slug, Request $request): Response
     {
         $review = new Review();
@@ -35,13 +35,45 @@ class ReviewsController extends AbstractController
             $newReview->setUser($this->getUser());
 
             $moviesRepository = $this->em->getRepository(Movie::class);
-            $newReview->setMovie($moviesRepository->findOneBy(['slug' => $slug]));
+            $movie = $moviesRepository->findOneBy(['slug' => $slug]);
+            $newReview->setMovie($movie);
 
             $this->em->persist($newReview);
             $this->em->flush();
 
             return $this->redirectToRoute('movies_show', [
-                'slug' => $slug
+                'slug' => $movie->getSlug(),
+            ]);
+        }
+
+        return $this->render('reviews/create.php.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
+    #[Route('/reviews/edit/{id}', name: 'reviews_create', methods: ["GET", "POST"])]
+    #[IsGranted('IS_AUTHENTICATED')]
+    public function edit($id, Request $request): Response
+    {
+        $repository = $this->em->getRepository(Review::class);
+        $review = $this->em->getRepository(Review::class)->findOneBy(['id' => $id]);
+        $form = $this->createForm(ReviewFormType::class, $review);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $review->setHeading($form->get('heading')->getData());
+            $review->setReview($form->get('review')->getData());
+            $review->setContent($form->get('content')->getData());
+
+            $this->em->persist($review);
+            $this->em->flush();
+
+            $page = $request->query->getInt('page', 1);
+            $reviews = $repository->findAllReviews($page, 3);
+
+            return $this->render('dashboard/reviews.php.twig', [
+                'reviews' => $reviews
             ]);
         }
 
@@ -51,6 +83,7 @@ class ReviewsController extends AbstractController
     }
 
     #[Route('/reviews/delete/{id}', name: 'reviews_delete', methods: ["POST"])]
+    #[IsGranted('IS_AUTHENTICATED')]
     public function delete($id, Request $request): Response {
         $referer = $request->headers->get('referer');
 

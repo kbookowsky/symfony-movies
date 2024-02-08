@@ -1,0 +1,13 @@
+controllers:
+    resource: ../../src/Controller/
+    type: annotation
+    prefix:
+        /: '/'
+        en: '/en'
+        pl: '/pl'
+    locale: ''
+    defaults:
+        _locale: ''
+    requirements:
+        _locale: 'en|pl'
+    trailing_slash_on_root: true

@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="pl" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="hgvv9oE" resname="Your Reviews">
+        <source>Your Reviews</source>
+        <target>Twoje recenzje</target>
+      </trans-unit>
+      <trans-unit id="v8EyO5q" resname="There are no reviews to display.">
+        <source>There are no reviews to display.</source>
+        <target>Brak recenzji do wyświetlenia.</target>
+      </trans-unit>
+      <trans-unit id="4tClSWj" resname="Delete">
+        <source>Delete</source>
+        <target>Usuń</target>
+      </trans-unit>
+      <trans-unit id="PbmnbTR" resname="All Movies">
+        <source>All Movies</source>
+        <target>Wszystkie filmy</target>
+      </trans-unit>
+      <trans-unit id="3.kktp_" resname="Movies">
+        <source>Movies</source>
+        <target>Filmy</target>
+      </trans-unit>
+      <trans-unit id="Z7aWRoY" resname="Dashboard">
+        <source>Dashboard</source>
+        <target>Pulpit</target>
+      </trans-unit>
+      <trans-unit id="0FJ_Sz1" resname="Logout">
+        <source>Logout</source>
+        <target>Wyloguj</target>
+      </trans-unit>
+      <trans-unit id="nWMiwfT" resname="Login">
+        <source>Login</source>
+        <target>Logowanie</target>
+      </trans-unit>
+      <trans-unit id="u3I07BJ" resname="Register">
+        <source>Register</source>
+        <target>Rejestracja</target>
+      </trans-unit>
+      <trans-unit id="Q9KqAxF" resname="Movies - Created in Symfony + Tailwind">
+        <source>Movies - Created in Symfony + Tailwind</source>
+        <target>Movies - Stworzone w Symfony + Tailwind</target>
+      </trans-unit>
+      <trans-unit id="_waRj.e" resname="Actors">
+        <source>Actors</source>
+        <target>Aktorzy</target>
+      </trans-unit>
+      <trans-unit id="Eux19MI" resname="All Actors">
+        <source>All Actors</source>
+        <target>Wszyscy aktorzy</target>
+      </trans-unit>
+      <trans-unit id="Vge4zt6" resname="Add Actor">
+        <source>Add Actor</source>
+        <target>Dodaj aktora</target>
+      </trans-unit>
+      <trans-unit id="3NHVIj9" resname="Name">
+        <source>Name</source>
+        <target>Imię</target>
+      </trans-unit>
+      <trans-unit id=".4BZ3Gd" resname="Actions">
+        <source>Actions</source>
+        <target>Akcje</target>
+      </trans-unit>
+      <trans-unit id="ke2wmYc" resname="There are no actors to display.">
+        <source>There are no actors to display.</source>
+        <target>Brak aktorów do wyświetlenia.</target>
+      </trans-unit>
+      <trans-unit id="oiK5kvr" resname="All movies">
+        <source>All movies</source>
+        <target>Wszystkie Filmy</target>
+      </trans-unit>
+      <trans-unit id="G9Vi2Y0" resname="Add movie">
+        <source>Add movie</source>
+        <target>Dodaj film</target>
+      </trans-unit>
+      <trans-unit id="fozSBW2" resname="Title">
+        <source>Title</source>
+        <target>Tytuł</target>
+      </trans-unit>
+      <trans-unit id="fWMfNcm" resname="There are no movies to display.">
+        <source>There are no movies to display.</source>
+        <target>Brak filmów do wyświetlenia.</target>
+      </trans-unit>
+      <trans-unit id="3Mg5pAF" resname="View">
+        <source>View</source>
+        <target>Zobacz</target>
+      </trans-unit>
+      <trans-unit id="RkxP.QG" resname="Edit">
+        <source>Edit</source>
+        <target>Edytuj</target>
+      </trans-unit>
+      <trans-unit id="8g0ywkg" resname="Manage Reviews">
+        <source>Manage Reviews</source>
+        <target>Zarządzanie recenzjami</target>
+      </trans-unit>
+      <trans-unit id="tRLZfny" resname="User">
+        <source>User</source>
+        <target>Użytkownik</target>
+      </trans-unit>
+      <trans-unit id="nylTBGT" resname="Rating">
+        <source>Rating</source>
+        <target>Ocena</target>
+      </trans-unit>
+      <trans-unit id="R70pB1_" resname="Content">
+        <source>Content</source>
+        <target>Treść</target>
+      </trans-unit>
+      <trans-unit id="yGdLwUB" resname="Change User Role">
+        <source>Change User Role</source>
+        <target>Zmień rolę użytkownika</target>
+      </trans-unit>
+      <trans-unit id="OpQ.Vio" resname="Manage Users">
+        <source>Manage Users</source>
+        <target>Zarządzanie użytkownikami</target>
+      </trans-unit>
+      <trans-unit id="s86vuV2" resname="There are no users to display.">
+        <source>There are no users to display.</source>
+        <target>Brak użytkowników do wyświetlenia.</target>
+      </trans-unit>
+      <trans-unit id="k9az6bh" resname="User:">
+        <source>User:</source>
+        <target>Użytkownik:</target>
+      </trans-unit>
+      <trans-unit id="9fHFbpr" resname="Your reviews:">
+        <source>Your reviews:</source>
+        <target>Twoje recenzje:</target>
+      </trans-unit>
+      <trans-unit id="BDvqrfc" resname="All movies:">
+        <source>All movies:</source>
+        <target>Wszystkie filmy:</target>
+      </trans-unit>
+      <trans-unit id="cajrd6p" resname="Users count:">
+        <source>Users count:</source>
+        <target>Liczba użytkowników:</target>
+      </trans-unit>
+      <trans-unit id="9FtWMw." resname="New movies">
+        <source>New movies</source>
+        <target>Nowe filmy:</target>
+      </trans-unit>
+      <trans-unit id="hMt4cbd" resname="Reviews">
+        <source>Reviews</source>
+        <target>Recenzje</target>
+      </trans-unit>
+      <trans-unit id="CUdjErn" resname="Release Year">
+        <source>Release Year</source>
+        <target>Rok premiery</target>
+      </trans-unit>
+      <trans-unit id="T8UqPEx" resname="Duration">
+        <source>Duration</source>
+        <target>Czas trwania</target>
+      </trans-unit>
+      <trans-unit id="RZid5J_" resname="Details">
+        <source>Details</source>
+        <target>Szczegóły</target>
+      </trans-unit>
+      <trans-unit id="pqMtvFY" resname="Link">
+        <source>Link</source>
+        <target>Link</target>
+      </trans-unit>
+      <trans-unit id="WnM1LDE" resname="Add Movie">
+        <source>Add Movie</source>
+        <target>Dodaj film</target>
+      </trans-unit>
+      <trans-unit id="TxBjyVZ" resname="Profile Settings">
+        <source>Profile Settings</source>
+        <target>Ustawienia profilu</target>
+      </trans-unit>
+      <trans-unit id="lB3kRHs" resname="Movie">
+        <source>Movie</source>
+        <target>Film</target>
+      </trans-unit>
+      <trans-unit id="ETZKTI8" resname="MENU">
+        <source>MENU</source>
+        <target>MENU</target>
+      </trans-unit>
+      <trans-unit id="5e9tobQ" resname="YOUR ACTIVITY">
+        <source>YOUR ACTIVITY</source>
+        <target>TWOJA AKTYWNOŚĆ</target>
+      </trans-unit>
+      <trans-unit id="g11tyIt" resname="ADMIN">
+        <source>ADMIN</source>
+        <target>ADMINISTRACJA</target>
+      </trans-unit>
+      <trans-unit id="6nyCyCV" resname="Manage Movies">
+        <source>Manage Movies</source>
+        <target>Zarządzanie filmami</target>
+      </trans-unit>
+      <trans-unit id="AvbqEoF" resname="SETTINGS">
+        <source>SETTINGS</source>
+        <target>USTAWIENIA</target>
+      </trans-unit>
+      <trans-unit id="62f6jIl" resname="Profile settings">
+        <source>Profile settings</source>
+        <target>Ustawienia profilu</target>
+      </trans-unit>
+      <trans-unit id="hu6xJb7" resname="Create Movie">
+        <source>Create Movie</source>
+        <target>Dodaj film</target>
+      </trans-unit>
+      <trans-unit id="OPdVW2X" resname="Edit Movie">
+        <source>Edit Movie</source>
+        <target>Edytuj film</target>
+      </trans-unit>
+      <trans-unit id="JK54VbU" resname="Movie details">
+        <source>Movie details</source>
+        <target>Szczegóły filmu</target>
+      </trans-unit>
+      <trans-unit id="r8BeCIR" resname="Genres:">
+        <source>Genres:</source>
+        <target>Gatunki:</target>
+      </trans-unit>
+      <trans-unit id="u8lKmjH" resname="Actors:">
+        <source>Actors:</source>
+        <target>Aktorzy:</target>
+      </trans-unit>
+      <trans-unit id="XtowTor" resname="Add review">
+        <source>Add review</source>
+        <target>Dodaj recenzję</target>
+      </trans-unit>
+      <trans-unit id=".oLkzJo" resname="There are no reviews for this movie.">
+        <source>There are no reviews for this movie.</source>
+        <target>Brak recenzji do wyświetlenia.</target>
+      </trans-unit>
+      <trans-unit id="vnonrJV" resname="Create Review">
+        <source>Create Review</source>
+        <target>Dodaj recenzję</target>
+      </trans-unit>
+      <trans-unit id="3GroQhh" resname="Edit Review">
+        <source>Edit Review</source>
+        <target>Edytuj recenzję</target>
+      </trans-unit>
+      <trans-unit id="acVpEs4" resname="You are logged in as">
+        <source>You are logged in as</source>
+        <target>Jesteś zalogowany jako</target>
+      </trans-unit>
+      <trans-unit id="lpzL089" resname="Email">
+        <source>Email</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="588_9PF" resname="Password">
+        <source>Password</source>
+        <target>Hasło</target>
+      </trans-unit>
+      <trans-unit id="wYmEDPf" resname="Log in">
+        <source>Log in</source>
+        <target>Zaloguj</target>
+      </trans-unit>
+      <trans-unit id="ZM.xMZ0" resname="Action">
+        <source>Action</source>
+        <target>Akcja</target>
+      </trans-unit>
+      <trans-unit id="hfHIyOM" resname="Comedy">
+        <source>Comedy</source>
+        <target>Komedia</target>
+      </trans-unit>
+      <trans-unit id="zWUMlSu" resname="Enter Title">
+        <source>Enter Title</source>
+        <target>Wpisz tytuł</target>
+      </trans-unit>
+      <trans-unit id="5_Na4Fc" resname="Enter Release Year">
+        <source>Enter Release Year</source>
+        <target>Wpisz rok premiery</target>
+      </trans-unit>
+      <trans-unit id="MrPz4RK" resname="e.g. 1:30">
+        <source>e.g. 1:30</source>
+        <target>np. 1:30</target>
+      </trans-unit>
+      <trans-unit id="UuDeGxi" resname="Enter Description">
+        <source>Enter Description</source>
+        <target>Wpisz opis</target>
+      </trans-unit>
+      <trans-unit id="Um4Ah8w" resname="Description">
+        <source>Description</source>
+        <target>Opis</target>
+      </trans-unit>
+      <trans-unit id="G6dup_P" resname="Poster">
+        <source>Poster</source>
+        <target>Plakat</target>
+      </trans-unit>
+      <trans-unit id="NWGr.oB" resname="Genres">
+        <source>Genres</source>
+        <target>Gatunki</target>
+      </trans-unit>
+      <trans-unit id="J_GRE99" resname="Save Movie">
+        <source>Save Movie</source>
+        <target>Zapisz film</target>
+      </trans-unit>
+      <trans-unit id="IaE5GBl" resname="You should agree to our terms.">
+        <source>You should agree to our terms.</source>
+        <target>Musisz zaakceptować nasze warunki.</target>
+      </trans-unit>
+      <trans-unit id="YXZ26gK" resname="Please enter a password">
+        <source>Please enter a password</source>
+        <target>Wpisz hasło</target>
+      </trans-unit>
+      <trans-unit id=".esazsm" resname="Your password should be at least {{ limit }} characters">
+        <source>Your password should be at least {{ limit }} characters</source>
+        <target>Twoje hasło powinno zawierać co najmniej {{ limit }} znaków</target>
+      </trans-unit>
+      <trans-unit id="GflA2g8" resname="Enter title">
+        <source>Enter title</source>
+        <target>Wpisz tytuł</target>
+      </trans-unit>
+      <trans-unit id="k741n8K" resname="Add Review">
+        <source>Add Review</source>
+        <target>Dodaj recenzję</target>
+      </trans-unit>
+      <trans-unit id="P1Od68j" resname="Profile Image">
+        <source>Profile Image</source>
+        <target>Zdjęcie profilowe</target>
+      </trans-unit>
+      <trans-unit id="OTOxgCF" resname="Bio">
+        <source>Bio</source>
+        <target>Bio</target>
+      </trans-unit>
+      <trans-unit id="NTIrW7W" resname="Save Changes">
+        <source>Save Changes</source>
+        <target>Zapisz zmiany</target>
+      </trans-unit>
+      <trans-unit id="kre0IZk" resname="USER">
+        <source>USER</source>
+        <target>UŻYTKOWNIK</target>
+      </trans-unit>
+      <trans-unit id="uiy9TS0" resname="EDITOR">
+        <source>EDITOR</source>
+        <target>REDAKTOR</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

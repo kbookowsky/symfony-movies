@@ -1,56 +1,62 @@
-<aside class="absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-gray-900 duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0 min-w-60">
+<aside class="absolute left-0 top-0 z-9999 flex w-72.5 flex-col overflow-y-hidden bg-gray-900 duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0 min-w-60">
     <div class="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
         <nav class="mt-5 px-4 py-4 pt-20 lg:mt-9 lg:px-6">
             <div>
-                <h3 class="mb-4 text-sm font-medium text-white">MENU</h3>
+                <h3 class="mb-4 text-sm font-medium text-white">{{ 'MENU'|trans }}</h3>
                 <ul class="mb-6 flex flex-col gap-1.5">
                     <li>
-                        <a class="group relative flex items-center gap-2.5 rounded-sm pr-4 py-2 font-medium text-white hover:underline" href="/dashboard">
-                            Dashboard
+                        <a class="group relative flex items-center gap-2.5 rounded-sm pr-4 py-2 font-medium text-white hover:underline" href="/{{ app.request.locale }}/dashboard">
+                            {{ 'Dashboard'|trans }}
                         </a>
                     </li>
                     <li>
-                        <a class="group relative flex items-center gap-2.5 rounded-sm pr-4 py-2 font-medium text-white hover:underline" href="/dashboard/movies">
-                            Movies
+                        <a class="group relative flex items-center gap-2.5 rounded-sm pr-4 py-2 font-medium text-white hover:underline" href="/{{ app.request.locale }}/dashboard/movies">
+                            {{ 'Movies'|trans }}
                         </a>
                     </li>
+                    {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_EDITOR') %}
+                        <li>
+                            <a class="group relative flex items-center gap-2.5 rounded-sm pr-4 py-2 font-medium text-white hover:underline" href="/{{ app.request.locale }}/dashboard/actors">
+                                {{ 'Actors'|trans }}
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+                <h3 class="mt-10 mb-4 text-sm font-medium text-white">{{ 'YOUR ACTIVITY'|trans }}</h3>
+                <ul class="mb-6 flex flex-col gap-1.5">
                     <li>
-                        <a class="group relative flex items-center gap-2.5 rounded-sm pr-4 py-2 font-medium text-white hover:underline" href="/dashboard/actors">
-                            Actors
+                        <a class="group relative flex items-center gap-2.5 rounded-sm pr-4 py-2 font-medium text-white hover:underline" href="/{{ app.request.locale }}/dashboard/reviews">
+                            {{ 'Your Reviews'|trans }}
                         </a>
                     </li>
                 </ul>
-                <h3 class="mt-10 mb-4 text-sm font-medium text-white">YOUR ACTIVITY</h3>
+                {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_EDITOR') %}
+                    <h3 class="mt-10 mb-4 text-sm font-medium text-white">{{ 'ADMIN'|trans }}</h3>
+                    <ul class="mb-6 flex flex-col gap-1.5">
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <li>
+                                <a class="group relative flex items-center gap-2.5 rounded-sm pr-4 py-2 font-medium text-white hover:underline" href="/{{ app.request.locale }}/dashboard/admin/users">
+                                    {{ 'Manage Users'|trans }}
+                                </a>
+                            </li>
+                        {% endif %}
+                        <li>
+                            <a class="group relative flex items-center gap-2.5 rounded-sm pr-4 py-2 font-medium text-white hover:underline" href="/{{ app.request.locale }}/dashboard/admin/movies">
+                                {{ 'Manage Movies'|trans }}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="group relative flex items-center gap-2.5 rounded-sm pr-4 py-2 font-medium text-white hover:underline" href="/{{ app.request.locale }}/dashboard/admin/reviews">
+                                {{ 'Manage Reviews'|trans }}
+                            </a>
+                        </li>
+                    </ul>
+                {% endif %}
+                <h3 class="mt-10 mb-4 text-sm font-medium text-white">{{ 'SETTINGS'|trans }}</h3>
                 <ul class="mb-6 flex flex-col gap-1.5">
                     <li>
-                        <a class="group relative flex items-center gap-2.5 rounded-sm pr-4 py-2 font-medium text-white hover:underline" href="/dashboard/reviews">
-                            Your Reviews
-                        </a>
-                    </li>
-                </ul>
-                <h3 class="mt-10 mb-4 text-sm font-medium text-white">ADMIN</h3>
-                <ul class="mb-6 flex flex-col gap-1.5">
-                    <li>
-                        <a class="group relative flex items-center gap-2.5 rounded-sm pr-4 py-2 font-medium text-white hover:underline" href="/dashboard/admin/users">
-                            Manage Users
-                        </a>
-                    </li>
-                    <li>
-                        <a class="group relative flex items-center gap-2.5 rounded-sm pr-4 py-2 font-medium text-white hover:underline" href="/dashboard/admin/movies">
-                            Manage Movies
-                        </a>
-                    </li>
-                    <li>
-                        <a class="group relative flex items-center gap-2.5 rounded-sm pr-4 py-2 font-medium text-white hover:underline" href="/dashboard/admin/reviews">
-                            Manage Reviews
-                        </a>
-                    </li>
-                </ul>
-                <h3 class="mt-10 mb-4 text-sm font-medium text-white">SETTINGS</h3>
-                <ul class="mb-6 flex flex-col gap-1.5">
-                    <li>
-                        <a class="group relative flex items-center gap-2.5 rounded-sm pr-4 py-2 font-medium text-white hover:underline" href="/dashboard/profile">
-                            Profile settings
+                        <a class="group relative flex items-center gap-2.5 rounded-sm pr-4 py-2 font-medium text-white hover:underline" href="/{{ app.request.locale }}/dashboard/profile">
+                            {{ 'Profile settings'|trans }}
                         </a>
                     </li>
                 </ul>

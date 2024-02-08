@@ -44,7 +44,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->getEntityManager()->flush();
     }
 
-    public function findAllPosts(int $page = 1, int $maxPerPage = 10): PaginationInterface
+    public function findAllUsers(int $page = 1, int $maxPerPage = 10): PaginationInterface
     {
         $qb = $this->createQueryBuilder("u")
         ->getQuery();

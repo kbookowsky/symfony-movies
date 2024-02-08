@@ -12,7 +12,7 @@
                 <div class="inline-block sm:pt-1">
                     <div class="mb-3 flex">
                         <span class="font-bold mr-2">
-                            Genres:
+                            {{ 'Genres:'|trans }}
                         </span>
                         <span class="first-letter:capitalize">
                             {{ movie.genres|join(', ') }}
@@ -20,7 +20,7 @@
                     </div>
                     <div class="mb-3 flex">
                         <span class="font-bold mr-2">
-                            Actors:
+                            {{ 'Actors:'|trans }}
                         </span>
                         <span class="first-letter:capitalize flex">
                             {% set i = 0 %}
@@ -45,15 +45,15 @@
     <div class="w-11/12 mx-auto pb-16">
         <div class="flex justify-between">
             <h2 class="text-3xl font-bold">
-                Reviews
+                {{ 'Reviews'|trans }}
             </h2>
-            <a href="/reviews/create/{{ movie.slug }}" class="uppercase mt-15 bg-blue-900 text-white py-3 px-6 rounded-lg w-fit ml-auto">
-                Add review
+            <a href="/{{ app.request.locale }}/reviews/create/{{ movie.slug }}" class="uppercase mt-15 bg-blue-900 text-white py-3 px-6 rounded-lg w-fit ml-auto">
+                {{ 'Add review'|trans }}
             </a>
         </div>
         <div class="mt-6">
             {% if movie.reviews is empty %}
-                <span>There are no reviews for this movie.</span>
+                <span>{{ 'There are no reviews for this movie.'|trans }}</span>
             {% else %}
                 {% for review in movie.reviews %}
                     <div class="mb-6 p-3 bg-white shadow-l rounded">
