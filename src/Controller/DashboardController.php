@@ -19,11 +19,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 class DashboardController extends AbstractController
 {
 
-    public function __construct(private EntityManagerInterface $em)
+    public function __construct(protected EntityManagerInterface $em)
     {
     }
 
-    #[Route('/dashboard', name: 'dashboard_index')]
+    #[Route('/dashboard', name: 'dashboard_index', methods: ["GET"])]
     #[isGranted('IS_AUTHENTICATED')]
     public function index(): Response
     {
@@ -37,7 +37,7 @@ class DashboardController extends AbstractController
         ]);
     }
 
-    #[Route('/dashboard/movies', name: 'dashboard_movies')]
+    #[Route('/dashboard/movies', name: 'dashboard_movies', methods: ["GET"])]
     #[isGranted('IS_AUTHENTICATED')]
     public function movies(Request $request): Response
     {   
@@ -48,7 +48,7 @@ class DashboardController extends AbstractController
         ]);
     }
 
-    #[Route('/dashboard/admin/users', name: 'dashboard_admin_users')]
+    #[Route('/dashboard/admin/users', name: 'dashboard_admin_users', methods: ["GET"])]
     #[IsGranted('ROLE_ADMIN')]
     public function users(Request $request): Response
     {
@@ -59,7 +59,28 @@ class DashboardController extends AbstractController
         ]);
     }
 
-    #[Route('/dashboard/admin/movies', name: 'dashboard_admin_movies')]
+    #[Route('/dashboard/admin/user-delete/{id}', name: 'dashboard_admin_user-delete', methods: ["POST"])]
+    #[IsGranted('ROLE_ADMIN')]
+    public function user_delete(
+        $id, 
+        Request $request
+    ): Response {
+        $referer = $request->headers->get('referer');
+
+        if (!$this->isCsrfTokenValid('user_delete', $request->getPayload()->get('_csrf_token'))) {
+            return $this->redirect($referer);
+        }
+
+        $repository = $this->em->getRepository(User::class);
+
+        $user = $repository->find($id);
+        $this->em->remove($user);
+        $this->em->flush();
+
+        return $this->redirect($referer);
+    }
+
+    #[Route('/dashboard/admin/movies', name: 'dashboard_admin_movies', methods: ["GET"])]
     #[IsGranted('ROLE_EDITOR')]
     public function admin_movies(Request $request): Response
     {
@@ -70,7 +91,7 @@ class DashboardController extends AbstractController
         ]);
     }
 
-    #[Route('/dashboard/admin/reviews', name: 'dashboard_admin_reviews')]
+    #[Route('/dashboard/admin/reviews', name: 'dashboard_admin_reviews', methods: ["GET"])]
     #[IsGranted('ROLE_EDITOR')]
     public function admin_reviews(Request $request): Response
     {
@@ -81,10 +102,12 @@ class DashboardController extends AbstractController
         ]);
     }
 
-    #[Route('/dashboard/admin/roles/{id}', name: 'dashboard_admin_roles')]
+    #[Route('/dashboard/admin/roles/{id}', name: 'dashboard_admin_roles', methods: ["GET", "POST"])]
     #[IsGranted('ROLE_ADMIN')]
-    public function admin_roles($id, Request $request): Response
-    {
+    public function admin_roles(
+        $id, 
+        Request $request
+    ): Response {
         $repository = $this->em->getRepository(User::class);
         $user = $repository->find($id);
 
@@ -105,7 +128,7 @@ class DashboardController extends AbstractController
         ]);
     }
 
-    #[Route('/dashboard/actors', name: 'dashboard_actors')]
+    #[Route('/dashboard/actors', name: 'dashboard_actors', methods: ["GET"])]
     #[IsGranted('ROLE_EDITOR')]
     public function actors(Request $request): Response
     {
@@ -118,7 +141,7 @@ class DashboardController extends AbstractController
         ]);
     }
 
-    #[Route('/dashboard/reviews', name: 'dashboard_reviews')]
+    #[Route('/dashboard/reviews', name: 'dashboard_reviews', methods: ["GET"])]
     #[isGranted('IS_AUTHENTICATED')]
     public function reviews(Request $request): Response
     {
@@ -131,7 +154,7 @@ class DashboardController extends AbstractController
         ]);
     }
 
-    #[Route('/dashboard/profile', name: 'dashboard_profile')]
+    #[Route('/dashboard/profile', name: 'dashboard_profile', methods: ["GET", "POST"])]
     #[isGranted('IS_AUTHENTICATED')]
     public function profile(Request $request): Response
     {

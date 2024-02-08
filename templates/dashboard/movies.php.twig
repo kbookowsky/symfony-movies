@@ -17,7 +17,7 @@
                                     <h4 class="text-xl font-bold text-black">
                                         {{ 'All Movies'|trans }}
                                     </h4>
-                                    <a href="/{{ app.request.locale }}/movies/create" class="uppercase mt-15 bg-blue-900 text-white py-3 px-6 rounded-lg w-fit ml-auto">
+                                    <a href="{{ app.request.locale ? '/'~app.request.locale : '' }}/movies/create" class="uppercase mt-15 bg-blue-900 text-white py-3 px-6 rounded-lg w-fit ml-auto">
                                         {{ 'Add Movie'|trans }}
                                     </a>
                                 </div>
@@ -59,7 +59,7 @@
                                                     <p class="font-medium text-black">{{ movie.duration }}</p>
                                                 </div>
                                                 <div class="flex items-center justify-center p-5">
-                                                    <a href="/{{ app.request.locale }}/movie/{{ movie.slug }}" class="font-medium text-black hover:underline">
+                                                    <a href="{{ app.request.locale ? '/'~app.request.locale : '' }}/movie/{{ movie.slug }}" class="font-medium text-black hover:underline">
                                                         {{ 'Link'|trans }}
                                                     </a>
                                                 </div>

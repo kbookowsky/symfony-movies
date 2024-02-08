@@ -25,7 +25,7 @@
                     <p class="text-base text-gray-700 pt-4 pb-10 font-light">
                         {{ movie.description }}
                     </p>
-                    <a href="/{{ app.request.locale }}/movie/{{ movie.slug }}" class="uppercase border border-gray-500 text-gray-600 text-lg py-3 px-6 rounded transition hover:bg-gray-800 hover:text-white">
+                    <a href="{{ app.request.locale ? '/'~app.request.locale : '' }}/movie/{{ movie.slug }}" class="uppercase border border-gray-500 text-gray-600 text-lg py-3 px-6 rounded transition hover:bg-gray-800 hover:text-white">
                         {{ 'Movie details'|trans }}
                     </a>
                 </div>

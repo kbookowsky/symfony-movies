@@ -35,15 +35,18 @@
                                         {% for user in users %}
                                             <div class="grid grid-cols-2 border-b border-gray-200 {{ loop.first ? 'border-t' : '' }}">
                                                 <div class="flex items-center p-5 pl-0">
-                                                    <p class="font-medium text-black">{{ user.name }}</p>
+                                                    <p class="font-medium text-black">{{ user.name ?: '(Blank Name)'|trans }} - {{ user.email }}</p>
                                                 </div>
                                                 <div class="flex items-center justify-end px-5 gap-x-3">
-                                                    <a href="/{{ app.request.locale }}/dashboard/admin/roles/{{ user.id }}" class="uppercase mt-15 bg-blue-900 text-white py-2 px-4 rounded-lg w-fit">
+                                                    <a href="{{ app.request.locale ? '/'~app.request.locale : '' }}/dashboard/admin/roles/{{ user.id }}" class="uppercase mt-15 bg-blue-900 text-white py-2 px-4 rounded-lg w-fit">
                                                         Roles
                                                     </a>
-                                                    <a href="/{{ app.request.locale }}/dashboard/admin/user-delete/{{ user.id }}" class="uppercase mt-15 bg-red-900 text-white py-2 px-4 rounded-lg w-fit">
-                                                        Delete
-                                                    </a>
+                                                    <form action="{{ app.request.locale ? '/'~app.request.locale : '' }}/dashboard/admin/user-delete/{{ user.id }}" method="post">
+                                                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('user_delete') }}">
+                                                        <button type="submit" class="uppercase mt-15 bg-red-900 text-white py-2 px-4 rounded-lg w-fit">
+                                                            {{ 'Delete'|trans }}
+                                                        </button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         {% endfor %}

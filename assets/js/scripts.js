@@ -11,13 +11,19 @@ function initFileUpload() {
     }
 
     fileInputs.each((index, input) => {
-        const presentImage = $(input).attr('image');
+        const presentImage = $(input).data('image');
         const inputParent = $(input).parent();
-        inputParent.append(`<img src="${presentImage}" class="hidden custom-upload-preview mt-3" alt="Uploaded file" width="250">`);
+
+        inputParent.append(`<img class="hidden custom-upload-preview mt-3" alt="Uploaded file" width="250">`);
         img = inputParent.find('img.custom-upload-preview');
         inputParent.append(`<button type="button" class="custom-upload block mt-3 py-3 px-6 bg-blue-900 text-white rounded-lg">${txt}</button>`);
         btn = inputParent.find('button.custom-upload');
-        $(input).addClass('hidden');
+
+        if (presentImage) {
+            img.attr('src', presentImage);
+            img.removeClass('hidden');
+            btn.html( txtAfter );
+        }
 
         btn.on('click', function(){
             input.click();

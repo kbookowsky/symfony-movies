@@ -329,6 +329,10 @@
         <source>EDITOR</source>
         <target>REDAKTOR</target>
       </trans-unit>
+      <trans-unit id="yiuxiSV" resname="(Blank Name)">
+        <source>(Blank Name)</source>
+        <target>(Brak imienia)</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

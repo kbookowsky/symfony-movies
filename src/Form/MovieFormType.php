@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Actor;
 use App\Entity\Movie;
+use App\Repository\MovieRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -18,7 +19,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class MovieFormType extends AbstractType
 {
-    public function __construct(private TranslatorInterface $translator)
+    public function __construct(protected TranslatorInterface $translator)
     {
     }
 
@@ -58,15 +59,13 @@ class MovieFormType extends AbstractType
                 'required' => false
             ])
             ->add('imagePath', FileType::class, [
+                'required' => false,
                 'mapped' => false,
-                'attr' => array(
-                    'class' => 'py-10'
-                ),
                 'label' => $this->translator->trans('Poster'),
-                'label_attr' => array(
-                    'class' => 'block mb-3'
-                ),
-                'required' => false
+                'attr' => [
+                    'class' => 'hidden',
+                    'data-image' => $builder->getData()->getImagePath(),
+                ]
             ])
             ->add('genres', ChoiceType::class, [
                 'multiple' => true,

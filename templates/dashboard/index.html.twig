@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Dashboard{% endblock %}
+{% block title %}{{ 'Dashboard'|trans }}{% endblock %}
 
 {% block body %}
     <div class="flex min-h-screen h-full overflow-hidden">
@@ -88,7 +88,7 @@
                                                     <p class="font-medium text-black">{{ movie.duration }}</p>
                                                 </div>
                                                 <div class="flex items-center justify-center p-5">
-                                                    <a href="/{{ app.request.locale }}/movie/{{ movie.slug }}" class="font-medium text-black hover:underline">
+                                                    <a href="{{ app.request.locale ? '/'~app.request.locale : '' }}/movie/{{ movie.slug }}" class="font-medium text-black hover:underline">
                                                         {{ 'Link'|trans }}
                                                     </a>
                                                 </div>

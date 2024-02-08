@@ -17,7 +17,7 @@
                                     <h4 class="text-xl font-bold text-black">
                                         {{ 'All movies'|trans }}
                                     </h4>
-                                    <a href="/{{ app.request.locale }}/movies/create" class="uppercase mt-15 bg-blue-900 text-white py-3 px-6 rounded-lg w-fit ml-auto">
+                                    <a href="{{ app.request.locale ? '/'~app.request.locale : '' }}/movies/create" class="uppercase mt-15 bg-blue-900 text-white py-3 px-6 rounded-lg w-fit ml-auto">
                                         {{ 'Add movie'|trans }}
                                     </a>
                                 </div>
@@ -41,15 +41,18 @@
                                                     <p class="font-medium text-black">{{ movie.title }}</p>
                                                 </div>
                                                 <div class="flex items-center justify-end px-5 gap-x-3">
-                                                    <a href="/{{ app.request.locale }}/movie/{{ movie.slug }}" class="uppercase mt-15 bg-blue-900 text-white py-2 px-4 rounded-lg w-fit">
+                                                    <a href="{{ app.request.locale ? '/'~app.request.locale : '' }}/movie/{{ movie.slug }}" class="uppercase mt-15 bg-blue-900 text-white py-2 px-4 rounded-lg w-fit">
                                                         {{ 'View'|trans }}
                                                     </a>
-                                                    <a href="/{{ app.request.locale }}/movie/{{ movie.slug }}" class="uppercase mt-15 bg-blue-900 text-white py-2 px-4 rounded-lg w-fit">
+                                                    <a href="{{ app.request.locale ? '/'~app.request.locale : '' }}/movies/edit/{{ movie.slug }}" class="uppercase mt-15 bg-blue-900 text-white py-2 px-4 rounded-lg w-fit">
                                                         {{ 'Edit'|trans }}
                                                     </a>
-                                                    <a href="/{{ app.request.locale }}/movie/{{ movie.slug }}" class="uppercase mt-15 bg-red-900 text-white py-2 px-4 rounded-lg w-fit">
-                                                        {{ 'Delete'|trans }}
-                                                    </a>
+                                                    <form action="{{ app.request.locale ? '/'~app.request.locale : '' }}/movies/delete/{{ movie.slug }}" method="post">
+                                                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('movie_delete') }}">
+                                                        <button type="submit" class="uppercase mt-15 bg-red-900 text-white py-2 px-4 rounded-lg w-fit">
+                                                            {{ 'Delete'|trans }}
+                                                        </button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         {% endfor %}

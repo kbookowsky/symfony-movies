@@ -42,7 +42,7 @@ class UserProfileFormType extends AbstractType
                 'mapped' => false,
                 'label' => $this->translator->trans('Profile Image'),
                 'attr' => [
-                    'class' => 'bg-transparent block mt-10 mx-auto border-b-2 w-1/5 h-20 text-2xl outline-none',
+                    'class' => 'hidden',
                     'data-image' => $this->security->getUser()->getImagePath()
                 ]
             ])

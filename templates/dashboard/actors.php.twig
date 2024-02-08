@@ -17,7 +17,7 @@
                                     <h4 class="text-xl font-bold text-black">
                                         {{ 'All Actors'|trans }}
                                     </h4>
-                                    <a href="/{{ app.request.locale }}/movies/create" class="uppercase mt-15 bg-blue-900 text-white py-3 px-6 rounded-lg w-fit ml-auto">
+                                    <a href="{{ app.request.locale ? '/'~app.request.locale : '' }}/movies/create" class="uppercase mt-15 bg-blue-900 text-white py-3 px-6 rounded-lg w-fit ml-auto">
                                         {{ 'Add Actor'|trans }}
                                     </a>
                                 </div>

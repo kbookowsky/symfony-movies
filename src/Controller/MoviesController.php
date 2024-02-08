@@ -15,11 +15,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class MoviesController extends AbstractController
 {
 
-    public function __construct(private EntityManagerInterface $em)
+    public function __construct(protected EntityManagerInterface $em)
     {
     }
 
-    #[Route('/', name: 'movies_index', methods: ['GET'])]
+    #[Route('/', name: 'movies_index', methods: ["GET"])]
     public function index(Request $request): Response
     {
         $repository = $this->em->getRepository(Movie::class);
@@ -30,7 +30,7 @@ class MoviesController extends AbstractController
         ]);
     }
 
-    #[Route('/movie/{slug}', name: 'movies_show', methods: ['GET'] )]
+    #[Route('/movie/{slug}', name: 'movies_show', methods: ["GET"] )]
     public function show($slug): Response
     {
         $repository = $this->em->getRepository(Movie::class);
@@ -40,7 +40,7 @@ class MoviesController extends AbstractController
         ]);
     }
 
-    #[Route('/movies/create', name: 'movies_create', methods: ['GET', 'POST'])]
+    #[Route('/movies/create', name: 'movies_create', methods: ["GET", "POST"])]
     #[IsGranted('ROLE_EDITOR')]
     public function create(Request $request): Response
     {
@@ -90,10 +90,12 @@ class MoviesController extends AbstractController
         ]);
     }
 
-    #[Route('/movies/edit/{slug}', name: 'movies_edit', methods: ['GET', 'POST'] )]
+    #[Route('/movies/edit/{slug}', name: 'movies_edit', methods: ["GET", "POST"] )]
     #[IsGranted('ROLE_EDITOR')]
-    public function edit($slug, Request $request): Response
-    {
+    public function edit(
+        $slug, 
+        Request $request
+    ): Response {
         $repository = $this->em->getRepository(Movie::class);
         $movie = $repository->findOneBy(['slug' => $slug]);
 
@@ -103,37 +105,37 @@ class MoviesController extends AbstractController
         $imagePath = $form->get('imagePath')->getData();
 
         if ($form->isSubmitted() && $form->isValid()) {
-            if ($imagePath) {
-                if ($movie->getImagePath() !== null) {
-                    if (file_exists($this->getParameter('kernel.project_dir') . $movie->getImagePath())) {
-                        $this->getParameter('kernel.project_dir') . $movie->getImagePath();
+            if (
+                $imagePath && 
+                $movie->getImagePath() !== null && 
+                file_exists($this->getParameter('kernel.project_dir') . $movie->getImagePath())
+            ) {
+                $this->getParameter('kernel.project_dir') . $movie->getImagePath();
 
-                        $newFileName = uniqid() . '.' . $imagePath->guessExtension();
+                $newFileName = uniqid() . '.' . $imagePath->guessExtension();
 
-                        try {
-                            $imagePath->move(
-                                $this->getParameter('kernel.project_dir') . '/public/uploads',
-                                $newFileName
-                            );
-                        } catch (FileException $e) {
-                            return new Response($e->getMessage());
-                        }
-
-                        $movie->setImagePath('/uploads/' . $newFileName);
-
-                        $this->em->flush();
-
-                        return $this->redirectToRoute('movies_index');
-                    }
+                try {
+                    $imagePath->move(
+                        $this->getParameter('kernel.project_dir') . '/public/uploads',
+                        $newFileName
+                    );
+                } catch (FileException $e) {
+                    return new Response($e->getMessage());
                 }
-            } else {
-                $movie->setTitle($form->get('title')->getData());
-                $movie->setReleaseYear($form->get('releaseYear')->getData());
-                $movie->setDescription($form->get('description')->getData());
+
+                $movie->setImagePath('/uploads/' . $newFileName);
 
                 $this->em->flush();
+
                 return $this->redirectToRoute('movies_index');
             }
+
+            $movie->setTitle($form->get('title')->getData());
+            $movie->setReleaseYear($form->get('releaseYear')->getData());
+            $movie->setDescription($form->get('description')->getData());
+
+            $this->em->flush();
+            return $this->redirectToRoute('movies_index');
         }
 
         return $this->render('movies/edit.html.twig', [
@@ -142,14 +144,24 @@ class MoviesController extends AbstractController
         ]);
     }
 
-    #[Route('/movies/delete/{slug}', name: 'movies_delete', methods: ['DELETE'] )]
-    #[IsGranted('ROLE_ADMIN')]
-    public function delete($slug): Response
-    {
+    #[Route('/movies/delete/{slug}', name: 'movies_delete', methods: ["POST"])]
+    #[IsGranted('ROLE_EDITOR')]
+    public function delete(
+        $slug, 
+        Request $request
+    ): Response {
+        $referer = $request->headers->get('referer');
+
+        if (!$this->isCsrfTokenValid('movie_delete', $request->getPayload()->get('_csrf_token'))) {
+            return $this->redirect($referer);
+        }
+
         $repository = $this->em->getRepository(Movie::class);
-        $movie = $repository->findOneBy(['slug' => $slug]);
-        return $this->render('movies/deleter.html.twig', [
-            'movie' => $movie
-        ]);
+
+        $movie = $repository->findOneBy(['slug'=> $slug]);
+        $this->em->remove($movie);
+        $this->em->flush();
+
+        return $this->redirect($referer);
     }
 }

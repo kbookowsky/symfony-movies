@@ -16,14 +16,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class ReviewsController extends AbstractController
 {
 
-    public function __construct(private EntityManagerInterface $em)
+    public function __construct(protected EntityManagerInterface $em)
     {
     }
 
     #[Route('/reviews/create/{slug}', name: 'reviews_create', methods: ["GET", "POST"])]
     #[IsGranted('IS_AUTHENTICATED')]
-    public function create($slug, Request $request): Response
-    {
+    public function create(
+        $slug, 
+        Request $request
+    ): Response {
         $review = new Review();
         $form = $this->createForm(ReviewFormType::class, $review);
 
@@ -51,12 +53,15 @@ class ReviewsController extends AbstractController
         ]);
     }
 
-    #[Route('/reviews/edit/{id}', name: 'reviews_create', methods: ["GET", "POST"])]
+    #[Route('/reviews/edit/{id}', name: 'reviews_edit', methods: ["GET", "POST"])]
     #[IsGranted('IS_AUTHENTICATED')]
-    public function edit($id, Request $request): Response
-    {
+    public function edit(
+        $id, 
+        Request $request
+    ): Response {
         $repository = $this->em->getRepository(Review::class);
-        $review = $this->em->getRepository(Review::class)->findOneBy(['id' => $id]);
+        $review = $repository->find($id);
+
         $form = $this->createForm(ReviewFormType::class, $review);
 
         $form->handleRequest($request);
@@ -84,7 +89,10 @@ class ReviewsController extends AbstractController
 
     #[Route('/reviews/delete/{id}', name: 'reviews_delete', methods: ["POST"])]
     #[IsGranted('IS_AUTHENTICATED')]
-    public function delete($id, Request $request): Response {
+    public function delete(
+        $id, 
+        Request $request
+    ): Response {
         $referer = $request->headers->get('referer');
 
         if (!$this->isCsrfTokenValid('review_delete', $request->getPayload()->get('_csrf_token'))) {
