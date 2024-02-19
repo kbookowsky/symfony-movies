@@ -17,7 +17,7 @@
             <header>
                 <nav class="flex items-center justify-between flex-wrap p-6 fixed w-full z-10 top-0" x-data="{ isOpen: false }" @keydown.escape="isOpen = false" :class="{ 'shadow-lg bg-gray-800' : isOpen , 'bg-gray-800' : !isOpen}">
                     <div class="flex items-center flex-shrink-0 text-white mr-6">
-                        <a class="text-white no-underline hover:text-white hover:no-underline" href="/{{ app.request.locale ? '/'~app.request.locale : '' }}">
+                        <a class="text-white no-underline hover:text-white hover:no-underline" href="{{ app.request.locale ? '/'~app.request.locale : '' }}">
                             <span class="text-2xl pl-2 font-extrabold">
                                 Movies
                             </span>
@@ -32,25 +32,25 @@
                     <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto" :class="{ 'block shadow-3xl': isOpen, 'hidden': !isOpen }" @click.away="isOpen = false" x-show.transition="true">
                         <ul class="pt-6 lg:pt-0 list-reset lg:flex justify-end flex-1 items-center">
                             <li class="mr-3">
-                                <a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/{{ app.request.locale ? '/'~app.request.locale : '' }}" @click="isOpen = false">
+                                <a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="{{ app.request.locale ? '/'~app.request.locale : '' }}" @click="isOpen = false">
                                     {{ 'Movies'|trans }}
                                 </a>
                             </li>
                             {% if is_granted('ROLE_ADMIN') %}
                                 <li class="mr-3">
-                                    <a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/{{ app.request.locale ? '/'~app.request.locale : '' }}/dashboard" @click="isOpen = false">
+                                    <a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="{{ app.request.locale ? '/'~app.request.locale : '' }}/dashboard" @click="isOpen = false">
                                         {{ 'Dashboard'|trans }}
                                     </a>
                                 </li>
                             {% endif %}
                             <li class="mr-3">
-                                <a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/{{ app.request.locale ? '/'~app.request.locale : '' }}/{{ app.user ? 'logout' : 'login' }}" @click="isOpen = false">
+                                <a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="{{ app.request.locale ? '/'~app.request.locale : '' }}/{{ app.user ? 'logout' : 'login' }}" @click="isOpen = false">
                                     {{ app.user ? 'Logout'|trans : 'Login'|trans }}
                                 </a>
                             </li>
                             {% if not app.user %}
                                 <li class="mr-3">
-                                    <a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/{{ app.request.locale ? '/'~app.request.locale : '' }}/register" @click="isOpen = false">
+                                    <a class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="{{ app.request.locale ? '/'~app.request.locale : '' }}/register" @click="isOpen = false">
                                         {{ 'Register'|trans }}
                                     </a>
                                 </li>

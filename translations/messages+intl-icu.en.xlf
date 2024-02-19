@@ -7,327 +7,327 @@
     <body>
       <trans-unit id="3.kktp_" resname="Movies">
         <source>Movies</source>
-        <target>__Movies</target>
+        <target>Movies</target>
       </trans-unit>
       <trans-unit id="Z7aWRoY" resname="Dashboard">
         <source>Dashboard</source>
-        <target>__Dashboard</target>
+        <target>Dashboard</target>
       </trans-unit>
       <trans-unit id="0FJ_Sz1" resname="Logout">
         <source>Logout</source>
-        <target>__Logout</target>
+        <target>Logout</target>
       </trans-unit>
       <trans-unit id="nWMiwfT" resname="Login">
         <source>Login</source>
-        <target>__Login</target>
+        <target>Login</target>
       </trans-unit>
       <trans-unit id="u3I07BJ" resname="Register">
         <source>Register</source>
-        <target>__Register</target>
+        <target>Register</target>
       </trans-unit>
       <trans-unit id="Q9KqAxF" resname="Movies - Created in Symfony + Tailwind">
         <source>Movies - Created in Symfony + Tailwind</source>
-        <target>__Movies - Created in Symfony + Tailwind</target>
+        <target>Movies - Created in Symfony + Tailwind</target>
       </trans-unit>
       <trans-unit id="_waRj.e" resname="Actors">
         <source>Actors</source>
-        <target>__Actors</target>
+        <target>Actors</target>
       </trans-unit>
       <trans-unit id="Eux19MI" resname="All Actors">
         <source>All Actors</source>
-        <target>__All Actors</target>
+        <target>All Actors</target>
       </trans-unit>
       <trans-unit id="Vge4zt6" resname="Add Actor">
         <source>Add Actor</source>
-        <target>__Add Actor</target>
+        <target>Add Actor</target>
       </trans-unit>
       <trans-unit id="3NHVIj9" resname="Name">
         <source>Name</source>
-        <target>__Name</target>
+        <target>Name</target>
       </trans-unit>
       <trans-unit id=".4BZ3Gd" resname="Actions">
         <source>Actions</source>
-        <target>__Actions</target>
+        <target>Actions</target>
       </trans-unit>
       <trans-unit id="ke2wmYc" resname="There are no actors to display.">
         <source>There are no actors to display.</source>
-        <target>__There are no actors to display.</target>
+        <target>There are no actors to display.</target>
       </trans-unit>
       <trans-unit id="4tClSWj" resname="Delete">
         <source>Delete</source>
-        <target>__Delete</target>
+        <target>Delete</target>
       </trans-unit>
       <trans-unit id="oiK5kvr" resname="All movies">
         <source>All movies</source>
-        <target>__All movies</target>
+        <target>All movies</target>
       </trans-unit>
       <trans-unit id="G9Vi2Y0" resname="Add movie">
         <source>Add movie</source>
-        <target>__Add movie</target>
+        <target>Add movie</target>
       </trans-unit>
       <trans-unit id="fozSBW2" resname="Title">
         <source>Title</source>
-        <target>__Title</target>
+        <target>Title</target>
       </trans-unit>
       <trans-unit id="fWMfNcm" resname="There are no movies to display.">
         <source>There are no movies to display.</source>
-        <target>__There are no movies to display.</target>
+        <target>There are no movies to display.</target>
       </trans-unit>
       <trans-unit id="3Mg5pAF" resname="View">
         <source>View</source>
-        <target>__View</target>
+        <target>View</target>
       </trans-unit>
       <trans-unit id="RkxP.QG" resname="Edit">
         <source>Edit</source>
-        <target>__Edit</target>
+        <target>Edit</target>
       </trans-unit>
       <trans-unit id="8g0ywkg" resname="Manage Reviews">
         <source>Manage Reviews</source>
-        <target>__Manage Reviews</target>
+        <target>Manage Reviews</target>
       </trans-unit>
       <trans-unit id="tRLZfny" resname="User">
         <source>User</source>
-        <target>__User</target>
+        <target>User</target>
       </trans-unit>
       <trans-unit id="nylTBGT" resname="Rating">
         <source>Rating</source>
-        <target>__Rating</target>
+        <target>Rating</target>
       </trans-unit>
       <trans-unit id="R70pB1_" resname="Content">
         <source>Content</source>
-        <target>__Content</target>
+        <target>Content</target>
       </trans-unit>
       <trans-unit id="yGdLwUB" resname="Change User Role">
         <source>Change User Role</source>
-        <target>__Change User Role</target>
+        <target>Change User Role</target>
       </trans-unit>
       <trans-unit id="OpQ.Vio" resname="Manage Users">
         <source>Manage Users</source>
-        <target>__Manage Users</target>
+        <target>Manage Users</target>
       </trans-unit>
       <trans-unit id="s86vuV2" resname="There are no users to display.">
         <source>There are no users to display.</source>
-        <target>__There are no users to display.</target>
+        <target>There are no users to display.</target>
       </trans-unit>
       <trans-unit id="k9az6bh" resname="User:">
         <source>User:</source>
-        <target>__User:</target>
+        <target>User:</target>
       </trans-unit>
       <trans-unit id="9fHFbpr" resname="Your reviews:">
         <source>Your reviews:</source>
-        <target>__Your reviews:</target>
+        <target>Your reviews:</target>
       </trans-unit>
       <trans-unit id="BDvqrfc" resname="All movies:">
         <source>All movies:</source>
-        <target>__All movies:</target>
+        <target>All movies:</target>
       </trans-unit>
       <trans-unit id="cajrd6p" resname="Users count:">
         <source>Users count:</source>
-        <target>__Users count:</target>
+        <target>Users count:</target>
       </trans-unit>
       <trans-unit id="9FtWMw." resname="New movies">
         <source>New movies</source>
-        <target>__New movies</target>
+        <target>New movies</target>
       </trans-unit>
       <trans-unit id="hMt4cbd" resname="Reviews">
         <source>Reviews</source>
-        <target>__Reviews</target>
+        <target>Reviews</target>
       </trans-unit>
       <trans-unit id="CUdjErn" resname="Release Year">
         <source>Release Year</source>
-        <target>__Release Year</target>
+        <target>Release Year</target>
       </trans-unit>
       <trans-unit id="T8UqPEx" resname="Duration">
         <source>Duration</source>
-        <target>__Duration</target>
+        <target>Duration</target>
       </trans-unit>
       <trans-unit id="RZid5J_" resname="Details">
         <source>Details</source>
-        <target>__Details</target>
+        <target>Details</target>
       </trans-unit>
       <trans-unit id="pqMtvFY" resname="Link">
         <source>Link</source>
-        <target>__Link</target>
+        <target>Link</target>
       </trans-unit>
       <trans-unit id="PbmnbTR" resname="All Movies">
         <source>All Movies</source>
-        <target>__All Movies</target>
+        <target>All Movies</target>
       </trans-unit>
       <trans-unit id="WnM1LDE" resname="Add Movie">
         <source>Add Movie</source>
-        <target>__Add Movie</target>
+        <target>Add Movie</target>
       </trans-unit>
       <trans-unit id="TxBjyVZ" resname="Profile Settings">
         <source>Profile Settings</source>
-        <target>__Profile Settings</target>
+        <target>Profile Settings</target>
       </trans-unit>
       <trans-unit id="hgvv9oE" resname="Your Reviews">
         <source>Your Reviews</source>
-        <target>__Your Reviews</target>
+        <target>Your Reviews</target>
       </trans-unit>
       <trans-unit id="lB3kRHs" resname="Movie">
         <source>Movie</source>
-        <target>__Movie</target>
+        <target>Movie</target>
       </trans-unit>
       <trans-unit id="v8EyO5q" resname="There are no reviews to display.">
         <source>There are no reviews to display.</source>
-        <target>__There are no reviews to display.</target>
+        <target>There are no reviews to display.</target>
       </trans-unit>
       <trans-unit id="ETZKTI8" resname="MENU">
         <source>MENU</source>
-        <target>__MENU</target>
+        <target>MENU</target>
       </trans-unit>
       <trans-unit id="5e9tobQ" resname="YOUR ACTIVITY">
         <source>YOUR ACTIVITY</source>
-        <target>__YOUR ACTIVITY</target>
+        <target>YOUR ACTIVITY</target>
       </trans-unit>
       <trans-unit id="g11tyIt" resname="ADMIN">
         <source>ADMIN</source>
-        <target>__ADMIN</target>
+        <target>ADMIN</target>
       </trans-unit>
       <trans-unit id="6nyCyCV" resname="Manage Movies">
         <source>Manage Movies</source>
-        <target>__Manage Movies</target>
+        <target>Manage Movies</target>
       </trans-unit>
       <trans-unit id="AvbqEoF" resname="SETTINGS">
         <source>SETTINGS</source>
-        <target>__SETTINGS</target>
+        <target>SETTINGS</target>
       </trans-unit>
       <trans-unit id="62f6jIl" resname="Profile settings">
         <source>Profile settings</source>
-        <target>__Profile settings</target>
+        <target>Profile settings</target>
       </trans-unit>
       <trans-unit id="hu6xJb7" resname="Create Movie">
         <source>Create Movie</source>
-        <target>__Create Movie</target>
+        <target>Create Movie</target>
       </trans-unit>
       <trans-unit id="OPdVW2X" resname="Edit Movie">
         <source>Edit Movie</source>
-        <target>__Edit Movie</target>
+        <target>Edit Movie</target>
       </trans-unit>
       <trans-unit id="JK54VbU" resname="Movie details">
         <source>Movie details</source>
-        <target>__Movie details</target>
+        <target>Movie details</target>
       </trans-unit>
       <trans-unit id="r8BeCIR" resname="Genres:">
         <source>Genres:</source>
-        <target>__Genres:</target>
+        <target>Genres:</target>
       </trans-unit>
       <trans-unit id="u8lKmjH" resname="Actors:">
         <source>Actors:</source>
-        <target>__Actors:</target>
+        <target>Actors:</target>
       </trans-unit>
       <trans-unit id="XtowTor" resname="Add review">
         <source>Add review</source>
-        <target>__Add review</target>
+        <target>Add review</target>
       </trans-unit>
       <trans-unit id=".oLkzJo" resname="There are no reviews for this movie.">
         <source>There are no reviews for this movie.</source>
-        <target>__There are no reviews for this movie.</target>
+        <target>There are no reviews for this movie.</target>
       </trans-unit>
       <trans-unit id="vnonrJV" resname="Create Review">
         <source>Create Review</source>
-        <target>__Create Review</target>
+        <target>Create Review</target>
       </trans-unit>
       <trans-unit id="3GroQhh" resname="Edit Review">
         <source>Edit Review</source>
-        <target>__Edit Review</target>
+        <target>Edit Review</target>
       </trans-unit>
       <trans-unit id="acVpEs4" resname="You are logged in as">
         <source>You are logged in as</source>
-        <target>__You are logged in as</target>
+        <target>You are logged in as</target>
       </trans-unit>
       <trans-unit id="lpzL089" resname="Email">
         <source>Email</source>
-        <target>__Email</target>
+        <target>Email</target>
       </trans-unit>
       <trans-unit id="588_9PF" resname="Password">
         <source>Password</source>
-        <target>__Password</target>
+        <target>Password</target>
       </trans-unit>
       <trans-unit id="wYmEDPf" resname="Log in">
         <source>Log in</source>
-        <target>__Log in</target>
+        <target>Log in</target>
       </trans-unit>
       <trans-unit id="ZM.xMZ0" resname="Action">
         <source>Action</source>
-        <target>__Action</target>
+        <target>Action</target>
       </trans-unit>
       <trans-unit id="hfHIyOM" resname="Comedy">
         <source>Comedy</source>
-        <target>__Comedy</target>
+        <target>Comedy</target>
       </trans-unit>
       <trans-unit id="zWUMlSu" resname="Enter Title">
         <source>Enter Title</source>
-        <target>__Enter Title</target>
+        <target>Enter Title</target>
       </trans-unit>
       <trans-unit id="5_Na4Fc" resname="Enter Release Year">
         <source>Enter Release Year</source>
-        <target>__Enter Release Year</target>
+        <target>Enter Release Year</target>
       </trans-unit>
       <trans-unit id="MrPz4RK" resname="e.g. 1:30">
         <source>e.g. 1:30</source>
-        <target>__e.g. 1:30</target>
+        <target>e.g. 1:30</target>
       </trans-unit>
       <trans-unit id="UuDeGxi" resname="Enter Description">
         <source>Enter Description</source>
-        <target>__Enter Description</target>
+        <target>Enter Description</target>
       </trans-unit>
       <trans-unit id="Um4Ah8w" resname="Description">
         <source>Description</source>
-        <target>__Description</target>
+        <target>Description</target>
       </trans-unit>
       <trans-unit id="G6dup_P" resname="Poster">
         <source>Poster</source>
-        <target>__Poster</target>
+        <target>Poster</target>
       </trans-unit>
       <trans-unit id="NWGr.oB" resname="Genres">
         <source>Genres</source>
-        <target>__Genres</target>
+        <target>Genres</target>
       </trans-unit>
       <trans-unit id="J_GRE99" resname="Save Movie">
         <source>Save Movie</source>
-        <target>__Save Movie</target>
+        <target>Save Movie</target>
       </trans-unit>
       <trans-unit id="IaE5GBl" resname="You should agree to our terms.">
         <source>You should agree to our terms.</source>
-        <target>__You should agree to our terms.</target>
+        <target>You should agree to our terms.</target>
       </trans-unit>
       <trans-unit id="YXZ26gK" resname="Please enter a password">
         <source>Please enter a password</source>
-        <target>__Please enter a password</target>
+        <target>Please enter a password</target>
       </trans-unit>
       <trans-unit id=".esazsm" resname="Your password should be at least {{ limit }} characters">
         <source>Your password should be at least {{ limit }} characters</source>
-        <target>__Your password should be at least {{ limit }} characters</target>
+        <target>Your password should be at least {{ limit }} characters</target>
       </trans-unit>
       <trans-unit id="GflA2g8" resname="Enter title">
         <source>Enter title</source>
-        <target>__Enter title</target>
+        <target>Enter title</target>
       </trans-unit>
       <trans-unit id="k741n8K" resname="Add Review">
         <source>Add Review</source>
-        <target>__Add Review</target>
+        <target>Add Review</target>
       </trans-unit>
       <trans-unit id="P1Od68j" resname="Profile Image">
         <source>Profile Image</source>
-        <target>__Profile Image</target>
+        <target>Profile Image</target>
       </trans-unit>
       <trans-unit id="OTOxgCF" resname="Bio">
         <source>Bio</source>
-        <target>__Bio</target>
+        <target>Bio</target>
       </trans-unit>
       <trans-unit id="NTIrW7W" resname="Save Changes">
         <source>Save Changes</source>
-        <target>__Save Changes</target>
+        <target>Save Changes</target>
       </trans-unit>
       <trans-unit id="kre0IZk" resname="USER">
         <source>USER</source>
-        <target>__USER</target>
+        <target>USER</target>
       </trans-unit>
       <trans-unit id="uiy9TS0" resname="EDITOR">
         <source>EDITOR</source>
-        <target>__EDITOR</target>
+        <target>EDITOR</target>
       </trans-unit>
     </body>
   </file>

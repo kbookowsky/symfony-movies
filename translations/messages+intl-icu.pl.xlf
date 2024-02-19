@@ -299,7 +299,7 @@
       </trans-unit>
       <trans-unit id=".esazsm" resname="Your password should be at least {{ limit }} characters">
         <source>Your password should be at least {{ limit }} characters</source>
-        <target>Twoje hasło powinno zawierać co najmniej {{ limit }} znaków</target>
+        <target>Twoje hasło powinno zawierać co najmniej { limit } znaków</target>
       </trans-unit>
       <trans-unit id="GflA2g8" resname="Enter title">
         <source>Enter title</source>

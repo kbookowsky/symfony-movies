@@ -4,65 +4,65 @@
 
 {% block body %}
 <form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
-
-    {% if app.user %}
-        <div class="mb-3">
-            {{ 'You are logged in as'|trans }} {{ app.user.email }}, <a href="{{ path('app_logout') }}">{{ 'Logout'|trans }}</a>
-        </div>
-    {% endif %}
-
     <div class="w-4/5 m-auto">
-        <div class="py-12 border-b border-gray-200 flex flex-col gap-y-10">
-            <h1 class="text-6xl pt-12 pb-8 text-center">
+        <div class="pt-48 pb-12 border-b border-gray-200 flex flex-col gap-y-10">
+            <h1 class="text-6xl pb-8 text-center">
                 {{ 'Login'|trans }}
             </h1>
 
-            <div class="w-96 mx-auto">
-                <label for="inputEmail" class="required mb-3">
-                    {{ 'Email'|trans }}
-                </label>
+            {% if error %}
+                <div class="w-96 mx-auto bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+            {% if app.user %}
+                <div class="w-96 mx-auto bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+                    {{ 'You are logged in as'|trans }} {{ app.user.email }}, <a href="{{ path('app_logout') }}"><strong>{{ 'Logout'|trans }}</strong></a>
+                </div>
+            {% else %}
+                <div class="w-96 mx-auto">
+                    <label for="inputEmail" class="required mb-3">
+                        {{ 'Email'|trans }}
+                    </label>
+                    <input 
+                        type="email" 
+                        value="{{ last_username }}" 
+                        name="email" 
+                        id="inputEmail" 
+                        class="bg-white block mt-4 p-2 border border-gray-500 rounded-lg w-full outline-none" 
+                        placeholder="{{ 'Email'|trans }}"
+                        autocomplete="email" 
+                        required 
+                        autofocus
+                    >
+                </div>
+
+                <div class="w-96 mx-auto">
+                    <label for="inputPassword" class="required mb-3">
+                        {{ 'Password'|trans }}
+                    </label>
+                    <input 
+                        type="password" 
+                        name="password" 
+                        id="inputPassword" 
+                        class="bg-white block mt-4 p-2 border border-gray-500 rounded-lg w-full outline-none" 
+                        autocomplete="current-password" 
+                        placeholder="{{ 'Password'|trans }}"
+                        required
+                    >
+                </div>
+
                 <input 
-                    type="email" 
-                    value="{{ last_username }}" 
-                    name="email" 
-                    id="inputEmail" 
-                    class="bg-white block mt-4 p-2 border border-gray-500 rounded-lg w-full outline-none" 
-                    placeholder="{{ 'Email'|trans }}"
-                    autocomplete="email" 
-                    required 
-                    autofocus
+                    type="hidden" 
+                    name="_csrf_token"
+                    value="{{ csrf_token('authenticate') }}"
                 >
-            </div>
 
-            <div class="w-96 mx-auto">
-                <label for="inputPassword" class="required mb-3">
-                    {{ 'Password'|trans }}
-                </label>
-                <input 
-                    type="password" 
-                    name="password" 
-                    id="inputPassword" 
-                    class="bg-white block mt-4 p-2 border border-gray-500 rounded-lg w-full outline-none" 
-                    autocomplete="current-password" 
-                    placeholder="{{ 'Password'|trans }}"
-                    required
-                >
-            </div>
-
-            <input 
-                type="hidden" 
-                name="_csrf_token"
-                value="{{ csrf_token('authenticate') }}"
-            >
-
-            <button 
-                class="uppercase mt-15 bg-blue-900 text-white py-3 px-6 rounded-lg w-fit mx-auto" 
-                type="submit">
-                {{ 'Log in'|trans }}
-            </button>
+                <button 
+                    class="uppercase mt-15 bg-blue-900 text-white py-3 px-6 rounded-lg w-fit mx-auto" 
+                    type="submit">
+                    {{ 'Log in'|trans }}
+                </button>
+            {% endif %}
         </form>
     </div>
 </div>

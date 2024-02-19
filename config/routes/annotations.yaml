@@ -2,12 +2,11 @@ controllers:
     resource: ../../src/Controller/
     type: annotation
     prefix:
-        /: '/'
         en: '/en'
         pl: '/pl'
     locale: ''
     defaults:
-        _locale: ''
+        _locale: 'en'
     requirements:
         _locale: 'en|pl'
     trailing_slash_on_root: true
